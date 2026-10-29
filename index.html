@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tessa · Rekomposition</title>
+<meta name="description" content="Training, Ernährung, Zyklus und Readiness für Tessas 12-Wochen-Plan.">
+<meta name="theme-color" content="#16121A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tessa">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/archivo-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Archivo';font-style:normal;font-display:swap;font-weight:100 900;
+  src:url(fonts/archivo-latin-wght-normal.woff2) format('woff2-variations'),url(fonts/archivo-latin-wght-normal.woff2) format('woff2')}
+@font-face{font-family:'Source Serif 4';font-style:normal;font-display:swap;font-weight:200 900;
+  src:url(fonts/source-serif-4-latin-opsz-normal.woff2) format('woff2-variations'),url(fonts/source-serif-4-latin-opsz-normal.woff2) format('woff2')}
+:root{
+  --bg:#16121A;--bg-2:#211A26;--bg-3:#2C2333;--line:#3D3145;
+  --ink:#F2EDF3;--dim:#A99BAD;--acc:#F08A5D;--info:#A3B8E8;--cyc:#E07FAF;--warn:#E8605A;--ok:#7DCB9F;
+  color-scheme:dark;
+  --sans:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --serif:'Source Serif 4',Georgia,serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-size:15px;line-height:1.5;padding-top:env(safe-area-inset-top);
+  padding-bottom:calc(76px + env(safe-area-inset-bottom));-webkit-tap-highlight-color:transparent}
+.wrap{max-width:680px;margin:0 auto;padding:0 16px}
+h1,h2,h3,h4,h5{margin:0;letter-spacing:-.015em}
+button{font-family:inherit;font-size:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+header{padding:18px 0 13px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.hrow{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.hrow h1{font-size:19px;font-weight:800}
+.hsub{font-size:12.5px;color:var(--dim);margin-top:3px}
+.cd{text-align:right;flex-shrink:0}
+.cd b{display:block;font-size:26px;font-weight:800;color:var(--acc);line-height:1;font-variant-numeric:tabular-nums}
+.cd span{font-size:10.5px;color:var(--dim)}
+.wstrip{display:flex;gap:2px;margin-top:6px}
+.wstrip button{flex:1;height:26px;padding:9px 0;border:none;border-radius:1px;
+  background-color:var(--bg-3);background-clip:content-box;cursor:pointer;min-width:0}
+.wstrip button.past{background-color:var(--line)}
+.wstrip button.dl{background-color:#4A5677}
+.wstrip button.now{background-color:var(--acc)}
+.wstrip button.sel{background-color:var(--ink)}
+.striphint{font-size:10.5px;color:var(--dim);text-align:center;margin:0}
+
+.card{background:var(--bg-2);border-radius:8px;padding:16px 16px 18px;margin-bottom:14px}
+.card.flat{background:none;border:1px solid var(--line);padding:15px 16px}
+.card h3{font-size:15.5px;font-weight:700;margin-bottom:2px}
+.card .sub{font-size:12.5px;color:var(--dim);margin-bottom:14px;line-height:1.45}
+.hint{font-size:12.8px;color:var(--dim);line-height:1.55}
+.empty{color:var(--dim);font-size:13.5px;padding:8px 0;line-height:1.5}
+.banner{border-left:3px solid var(--info);border-radius:0 8px 8px 0}
+.banner.cy{border-left-color:var(--cyc)}
+.banner.wn{border-left-color:var(--warn)}
+
+.dial{display:flex;align-items:center;gap:16px}
+.dialnum{font-size:33px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.dialtxt{font-size:13.3px;color:var(--dim);margin-top:6px;line-height:1.45}
+.subscores{display:flex;gap:8px;margin-top:14px}
+.ss{flex:1;background:var(--bg-3);border-radius:6px;padding:9px 10px;min-width:0}
+.ss b{display:block;font-size:17px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.2}
+.ss span{font-size:10.5px;color:var(--dim);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ss.cy b{color:var(--cyc)}
+
+.field{margin-bottom:15px}
+.field > label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+.field .lh{display:flex;justify-content:space-between;font-size:11px;color:var(--dim);margin-bottom:6px}
+.scale{display:flex;gap:6px}
+.scale button{flex:1;padding:11px 0;border:1px solid var(--line);background:transparent;
+  border-radius:6px;font-weight:600;font-variant-numeric:tabular-nums}
+.scale button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--bg)}
+.scale.cy button[aria-pressed="true"]{background:var(--cyc);border-color:var(--cyc)}
+.grp{border-top:1px solid var(--line);margin:18px 0 14px;padding-top:15px}
+.grp:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.grph{font-size:11.5px;font-weight:600;color:var(--info);margin-bottom:12px}
+.grph.cy{color:var(--cyc)}
+.cyline{font-size:12.8px;color:var(--dim);margin:-4px 0 14px;line-height:1.5}
+.cyline b{color:var(--ink);font-weight:600}
+.nums{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+input[type=number],input[type=text],input[type=date],select,textarea{width:100%;padding:11px 12px;
+  border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:6px;
+  font-family:inherit;font-size:16px;font-variant-numeric:tabular-nums;-moz-appearance:textfield}
+textarea{font-size:14px;line-height:1.5;resize:vertical;min-height:62px}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+input:focus,select:focus,textarea:focus{border-color:var(--acc);outline:none}
+input[type=date]{font-size:15px;text-align:left;color-scheme:dark;-webkit-appearance:none;appearance:none;min-height:44px}
+.ilbl{font-size:11.5px;color:var(--dim);display:block;margin-bottom:5px}
+
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tags button{padding:8px 12px;border:1px solid var(--line);background:transparent;
+  border-radius:99px;font-size:13px}
+.tags button[aria-pressed="true"]{background:var(--bg-3);border-color:var(--info);color:var(--info)}
+.tags.cyt button[aria-pressed="true"]{border-color:var(--cyc);color:var(--cyc)}
+.chips{display:flex;gap:5px}
+.chips button{flex:1;min-width:0;padding:10px 2px;border:1px solid var(--line);background:transparent;
+  border-radius:6px;font-size:12.5px;font-weight:600;white-space:nowrap}
+.chips button[aria-pressed="true"]{background:var(--cyc);border-color:var(--cyc);color:var(--bg)}
+.seg2{display:flex;gap:6px}
+.seg2 button{flex:1;padding:11px 6px;border:1px solid var(--line);background:transparent;
+  border-radius:6px;font-weight:600;font-size:13.5px}
+.seg2 button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:var(--bg)}
+
+.btn{display:block;width:100%;padding:14px;border:none;border-radius:7px;background:var(--acc);
+  color:var(--bg);font-weight:700;font-size:15px;margin-top:4px}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink);font-weight:600}
+.btn.sm{padding:10px;font-size:13.5px}
+.btn.inl{display:inline-block;width:auto;margin:0;padding:10px 14px;flex-shrink:0}
+.saved{background:var(--ok)!important;color:var(--bg)!important;border-color:var(--ok)!important}
+.linkbtn{background:none;border:none;color:var(--info);font-weight:600;font-size:12.5px;padding:0;text-decoration:underline;text-underline-offset:2px}
+
+.seg{display:flex;gap:6px;background:var(--bg-2);padding:4px;border-radius:8px;margin-bottom:14px}
+.seg button{flex:1;padding:9px 0;border:none;background:transparent;border-radius:6px;
+  font-size:13.5px;font-weight:600;color:var(--dim)}
+.seg button[aria-pressed="true"]{background:var(--bg-3);color:var(--acc)}
+.pills{display:flex;gap:7px;overflow-x:auto;padding-bottom:4px;margin-bottom:14px}
+.pills button{flex-shrink:0;padding:9px 14px;border:1px solid var(--line);background:transparent;
+  border-radius:99px;font-size:13px;font-weight:600;white-space:nowrap}
+.pills button[aria-pressed="true"]{background:var(--bg-3);border-color:var(--acc);color:var(--acc)}
+
+.weeknav{display:flex;align-items:center;gap:10px;background:var(--bg-2);border-radius:8px;padding:8px;margin-bottom:10px}
+.weeknav button{width:44px;height:44px;border:1px solid var(--line);background:transparent;border-radius:7px;font-size:20px;line-height:1;flex-shrink:0}
+.weeknav button:disabled{opacity:.28}
+.weeknav .mid{flex:1;text-align:center;min-width:0}
+.weeknav .mid b{display:block;font-size:15px;font-weight:700}
+.weeknav .mid span{font-size:11.5px;color:var(--dim);font-variant-numeric:tabular-nums}
+.badge{display:inline-block;font-size:10px;font-weight:600;padding:2px 7px;border-radius:99px;margin-left:6px;vertical-align:1px;white-space:nowrap}
+.badge.dl{background:rgba(163,184,232,.16);color:var(--info)}
+.badge.ts{background:rgba(240,138,93,.18);color:var(--acc)}
+.badge.ok{background:rgba(125,203,159,.18);color:var(--ok)}
+.lastline{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--info);margin:-2px 0 9px;flex-wrap:wrap;line-height:1.45}
+.lastline button{font-size:11px;padding:3px 10px;border:1px solid var(--line);background:transparent;border-radius:99px;color:var(--dim);flex-shrink:0}
+.lastline .none{color:var(--dim)}
+.dupnav{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 14px}
+.dupnav span{font-size:11.5px;color:var(--dim)}
+.dupnav button{padding:7px 12px;border:1px solid var(--line);background:transparent;
+  border-radius:99px;font-size:12.5px;font-variant-numeric:tabular-nums}
+.dupnav button[aria-pressed="true"]{border-color:var(--acc);color:var(--acc);background:var(--bg-3)}
+.dateline{display:flex;align-items:center;gap:10px;margin:0 0 18px}
+.dateline input{flex:1}
+.histrow{display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;padding:12px 0;border:none;border-bottom:1px solid rgba(61,49,69,.55);background:none;text-align:left}
+.histrow:last-child{border-bottom:none}
+.histrow>div:first-child{min-width:0;flex:1}
+.histrow b{font-size:14px;font-weight:600;display:block;margin-bottom:2px}
+.histrow span{font-size:11.5px;color:var(--dim);display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.histrow .rt{text-align:right;flex-shrink:0;font-variant-numeric:tabular-nums;font-size:12.5px;color:var(--info)}
+.dellink{display:block;width:100%;text-align:center;background:none;border:none;color:var(--warn);font-size:12.5px;padding:12px 0 0;font-weight:600}
+.dellink.muted{color:var(--dim)}
+.exhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+  margin:20px 0 8px;padding-top:14px;border-top:1px solid var(--line)}
+.exhead:first-of-type{border-top:none;padding-top:0;margin-top:6px}
+.exhead b{font-size:14.5px;font-weight:700}
+.exhead span{font-size:12px;color:var(--acc);text-align:right;font-variant-numeric:tabular-nums}
+.setrow,.colhdr{display:grid;grid-template-columns:24px 1fr 1fr 1fr 32px;gap:7px;align-items:center}
+.setrow{margin-bottom:7px}
+.setrow .idx{font-size:12px;color:var(--dim);font-variant-numeric:tabular-nums}
+.setrow input{padding:9px 6px;font-size:15px;text-align:center}
+.setrow .e1{font-size:11px;color:var(--info);text-align:right;font-variant-numeric:tabular-nums}
+.colhdr{font-size:10.5px;color:var(--dim);margin-bottom:5px}
+.colhdr span:nth-child(n+2){text-align:center}
+
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.stat{background:var(--bg-2);border-radius:7px;padding:12px 13px;min-width:0}
+.card .stat{background:var(--bg-3)}
+.stat b{display:block;font-size:20px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.2}
+.stat span{font-size:11.5px;color:var(--dim);display:block;margin-top:2px}
+.stat small{font-size:11px;display:block;margin-top:3px}
+.pos{color:var(--ok)}.neg{color:var(--warn)}.neu{color:var(--dim)}.amb{color:var(--acc)}.cyc{color:var(--cyc)}
+
+table.t{width:100%;border-collapse:collapse;font-size:13.5px;font-variant-numeric:tabular-nums}
+table.t th{text-align:left;font-size:11px;color:var(--dim);font-weight:600;padding-bottom:7px;
+  border-bottom:1px solid var(--line)}
+table.t td{padding:9px 0;border-bottom:1px solid rgba(61,49,69,.55);vertical-align:top}
+table.t td:not(:first-child),table.t th:not(:first-child){text-align:right;padding-left:8px}
+table.t tr:last-child td{border-bottom:none}
+table.t td small{display:block;font-size:10.5px;color:var(--dim)}
+
+.bar{height:6px;border-radius:3px;background:var(--bg-3);overflow:hidden;margin-top:5px}
+.bar i{display:block;height:100%;background:var(--acc)}
+.bbar{display:flex;align-items:center;gap:10px;margin-bottom:9px;font-size:13px}
+.bbar .lbl{width:96px;flex-shrink:0;color:var(--dim);font-size:12px}
+.bbar .track{flex:1;height:20px;background:var(--bg-3);border-radius:4px;overflow:hidden}
+.bbar .track i{display:block;height:100%;background:var(--acc);border-radius:4px}
+.bbar .val{width:34px;text-align:right;font-variant-numeric:tabular-nums;font-weight:600;font-size:12.5px}
+
+.insight{border-top:1px solid var(--line);padding:15px 0}
+.insight:first-child{border-top:none;padding-top:2px}
+.insight h4{font-size:13.5px;font-weight:700;margin-bottom:5px}
+.insight p{margin:0;font-size:13.3px;color:var(--dim);line-height:1.55}
+.insight .verdict{color:var(--ink);font-weight:600}
+.locked h4{color:var(--dim)}
+
+.startlist{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.startlist span.st{display:inline-flex;align-items:center;gap:7px;padding:5px 5px 5px 11px;border:1px solid var(--line);
+  border-radius:99px;font-size:12.5px;font-variant-numeric:tabular-nums}
+.startlist button{border:none;background:var(--bg-3);color:var(--dim);border-radius:99px;width:24px;height:24px;line-height:1;font-size:14px;padding:0}
+.mlist{margin-top:6px}
+.mlist div{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(61,49,69,.55);font-size:12.8px}
+.mlist div:last-child{border-bottom:none}
+.mlist span{color:var(--dim);font-variant-numeric:tabular-nums}
+.mlist button{border:none;background:var(--bg-3);color:var(--dim);border-radius:99px;width:24px;height:24px;line-height:1;font-size:14px;padding:0;flex-shrink:0}
+
+/* Wissen */
+.acc{border-bottom:1px solid var(--line)}
+.acc>button{width:100%;text-align:left;background:none;border:none;padding:16px 0;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:700;font-size:15px}
+.acc>button .ch{color:var(--acc);font-size:19px;line-height:1;flex-shrink:0;transition:transform .18s}
+.acc>button[aria-expanded="true"] .ch{transform:rotate(45deg)}
+.acc .body{display:none;padding:0 0 22px;font-family:var(--serif);font-size:16px;line-height:1.68;color:var(--ink)}
+.acc .body.on{display:block}
+.acc .body p{margin:0 0 15px}
+.acc .body h5{font-family:var(--sans);font-size:14px;font-weight:700;color:var(--acc);margin:22px 0 7px}
+.acc .body ul,.acc .body ol{padding-left:19px;margin:0 0 16px}
+.acc .body li{margin-bottom:7px}
+.acc .body table.t{font-family:var(--sans);font-size:13px}
+.acc .body .scroll{overflow-x:auto;margin-bottom:18px;-webkit-overflow-scrolling:touch}
+.acc .body .scroll table{min-width:0}
+.acc .body table.t.tn td:not(:first-child),.acc .body table.t.tn th:not(:first-child){white-space:nowrap}
+.acc .body table.t.tn td:first-child{padding-right:6px}
+.note{background:var(--bg-2);border-left:3px solid var(--acc);padding:14px 16px;
+  margin:0 0 18px;border-radius:0 4px 4px 0;font-size:15px}
+.note.warn{border-left-color:var(--warn);background:rgba(232,96,90,.1)}
+.note.cy{border-left-color:var(--cyc)}
+.note b.l{display:block;font-family:var(--sans);font-size:12px;color:var(--acc);margin-bottom:6px}
+.note.warn b.l{color:var(--warn)}
+.note.cy b.l{color:var(--cyc)}
+tr.slot td{color:var(--info);font-size:11.5px;padding-top:12px!important;border-bottom:none!important}
+tr.sum td{border-top:1px solid var(--line);font-weight:700;color:var(--acc)}
+
+nav{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(22,18,26,.97);
+  border-top:1px solid var(--line);display:flex;padding-bottom:env(safe-area-inset-bottom);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+nav button{flex:1;background:none;border:none;padding:11px 2px 12px;font-size:10.5px;
+  font-weight:600;color:var(--dim);display:flex;flex-direction:column;align-items:center;gap:4px}
+nav button[aria-current="page"]{color:var(--acc)}
+nav svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round}
+.view{display:none}.view.on{display:block}
+.status{font-size:11.5px;color:var(--dim);text-align:center;padding:22px 0 8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="hrow">
+    <div><h1 id="hTitle">Rekomposition</h1><div class="hsub" id="hSub">…</div></div>
+    <div class="cd"><b id="cdNum">–</b><span>Tage bis Abschluss</span></div>
+  </div>
+  <div class="wstrip" id="wstrip"></div>
+  <p class="striphint">Woche antippen, um Plan oder Verlauf zu öffnen</p>
+</header>
+
+<!-- ══════ HEUTE ══════ -->
+<section class="view on" id="v-heute">
+  <div id="a2hs"></div>
+  <div class="card banner cy" id="setupCard" style="display:none">
+    <h3>Zyklus einrichten</h3>
+    <p class="sub">Drei Angaben, damit Readiness, Gewichtstrend und Messfenster ab heute zu deinem Zyklus passen. Alles bleibt auf diesem Gerät.</p>
+    <div class="field"><span class="ilbl">Verhütung</span>
+      <div class="seg2" id="suContra"><button type="button" data-v="natural">Natürlicher Zyklus</button><button type="button" data-v="hormonal">Hormonell</button></div></div>
+    <div class="nums">
+      <div><span class="ilbl">Zykluslänge (Tage)</span><input type="number" inputmode="numeric" id="suLen" placeholder="28"></div>
+      <div><span class="ilbl">Periodendauer (Tage)</span><input type="number" inputmode="numeric" id="suPer" placeholder="5"></div>
+    </div>
+    <div class="field" style="margin:12px 0 4px"><span class="ilbl">Letzter Periodenbeginn</span><input type="date" id="suStart"></div>
+    <button class="btn" id="suSave" type="button">Speichern</button>
+    <button class="dellink muted" id="suLater" type="button">Später — geht auch im Trends-Tab</button>
+  </div>
+
+  <div class="card">
+    <div class="dial">
+      <svg width="82" height="82" viewBox="0 0 86 86" aria-hidden="true">
+        <circle cx="43" cy="43" r="36" style="stroke:var(--bg-3)" stroke-width="9" fill="none"/>
+        <circle id="dialArc" cx="43" cy="43" r="36" style="stroke:var(--acc)" stroke-width="9" fill="none"
+          stroke-linecap="round" stroke-dasharray="226" stroke-dashoffset="226" transform="rotate(-90 43 43)"/>
+      </svg>
+      <div><div class="dialnum" id="dialNum">—</div>
+      <div class="dialtxt" id="dialTxt">Füll das Logbuch aus, dann steht hier deine Empfehlung für heute.</div></div>
+    </div>
+    <div class="subscores">
+      <div class="ss"><b id="ssBody">—</b><span>Körper</span></div>
+      <div class="ss"><b id="ssMind">—</b><span>Kopf</span></div>
+      <div class="ss cy"><b id="ssCyc">±0</b><span id="ssCycL">Zyklus</span></div>
+    </div>
+  </div>
+
+  <div id="measBanner"></div>
+
+  <div class="card">
+    <h3>Logbuch</h3><p class="sub" id="ciDate"></p>
+
+    <div class="grp"><div class="grph">Körper</div>
+      <div class="nums" style="margin-bottom:15px">
+        <div><span class="ilbl">Schlaf (Std.)</span><input type="number" step="0.25" inputmode="decimal" id="i-sleepH" placeholder="7,5"></div>
+        <div><span class="ilbl">Gewicht (kg)</span><input type="number" step="0.1" inputmode="decimal" id="i-weight" placeholder="65,0"></div>
+      </div>
+      <div class="field"><label>Schlafqualität</label>
+        <div class="lh"><span>zerrissen</span><span>durchgeschlafen</span></div><div class="scale" id="s-sleepQ"></div></div>
+      <div class="field" style="margin-bottom:0"><label>Muskelkater</label>
+        <div class="lh"><span>keiner</span><span>stark</span></div><div class="scale" id="s-soreness"></div></div>
+    </div>
+
+    <div class="grp"><div class="grph">Kopf</div>
+      <div class="field"><label>Stimmung</label>
+        <div class="lh"><span>mies</span><span>gut</span></div><div class="scale" id="s-mood"></div></div>
+      <div class="field"><label>Trainingslust</label>
+        <div class="lh"><span>keine</span><span>brennt</span></div><div class="scale" id="s-motivation"></div></div>
+      <div class="field"><label>Fokus und Klarheit</label>
+        <div class="lh"><span>vernebelt</span><span>klar</span></div><div class="scale" id="s-focus"></div></div>
+      <div class="field" style="margin-bottom:0"><label>Belastung durch Arbeit und Privates</label>
+        <div class="lh"><span>ruhig</span><span>voll</span></div><div class="scale" id="s-stress"></div></div>
+    </div>
+
+    <div class="grp"><div class="grph cy">Zyklus</div>
+      <p class="cyline" id="cyLine">—</p>
+      <div class="field"><label>Blutung heute</label><div class="chips" id="flowBox"></div></div>
+      <div class="field"><label>Zyklusbeschwerden</label>
+        <div class="lh"><span>keine</span><span>stark</span></div><div class="scale cy" id="s-cyc"></div></div>
+      <div class="field" style="margin-bottom:0"><label>Was davon?</label><div class="tags cyt" id="symBox"></div></div>
+    </div>
+
+    <div class="grp"><div class="grph">Was war gestern?</div>
+      <div class="tags" id="tagBox"></div>
+      <div class="field" style="margin:15px 0 0"><span class="ilbl">Notiz — ein Satz reicht</span>
+        <textarea id="i-note" placeholder="Was auffiel. Später liest sich das wie ein Protokoll."></textarea></div>
+    </div>
+
+    <button class="btn" id="saveCheckin" type="button">Logbuch speichern</button>
+  </div>
+
+  <div class="card flat"><h3>Heutige Einheit</h3>
+    <p class="sub" id="sessName">—</p>
+    <button class="btn ghost sm" id="goTraining" type="button">Einheit öffnen</button></div>
+
+  <div class="card flat"><h3>Diese Woche</h3>
+    <p class="sub" id="weekBrief">—</p><div class="stats" id="weekStats"></div></div>
+</section>
+
+<!-- ══════ TRAINING ══════ -->
+<section class="view" id="v-training">
+  <div class="seg" id="trSeg">
+    <button type="button" data-m="session" aria-pressed="true">Einheit</button>
+    <button type="button" data-m="history">Verlauf</button>
+    <button type="button" data-m="tests">Messungen</button>
+  </div>
+
+  <div id="m-session">
+    <div class="weeknav">
+      <button type="button" id="wPrev" aria-label="Woche zurück">‹</button>
+      <div class="mid"><b id="wLabel">—</b><span id="wDates"></span></div>
+      <button type="button" id="wNext" aria-label="Woche vor">›</button>
+    </div>
+    <button class="btn ghost sm" id="wToday" type="button" style="display:none;margin-bottom:12px">Zurück zur aktuellen Woche</button>
+
+    <div class="card flat" style="margin-bottom:14px">
+      <h3 id="trBlock">—</h3><p class="sub" id="trFocus" style="margin-bottom:0"></p></div>
+
+    <div class="pills" id="dayPills"></div>
+
+    <div class="card">
+      <h3 id="sessTitle">—</h3><p class="sub" id="sessTag"></p>
+      <div class="dupnav" id="dupNav" style="display:none"></div>
+      <div class="dateline"><span class="ilbl" style="margin:0;flex-shrink:0">Datum</span><input type="date" id="sessDate"></div>
+      <div id="exList"></div>
+      <button class="btn" id="saveSession" type="button" style="margin-top:18px">Einheit speichern</button>
+      <button class="dellink" id="delSession" type="button" style="display:none">Diese Einheit löschen</button>
+    </div>
+
+    <div class="card"><h3>Kraftverlauf</h3>
+      <p class="sub">Geschätztes 1RM aus Last, Wiederholungen und RPE — aus jedem Satz, den du einträgst. Bei Kurzhanteln pro Hand.</p>
+      <div class="pills" id="e1Pills"></div><div id="e1Chart"></div>
+      <div class="stats" id="e1Stats" style="margin-top:12px"></div></div>
+  </div>
+
+  <div id="m-history" style="display:none">
+    <div class="card flat"><h3>Alle Einheiten</h3>
+      <p class="sub" style="margin-bottom:0">Tipp eine Einheit an, um sie zu öffnen und zu bearbeiten.</p></div>
+    <div class="card"><div class="stats" id="hStats" style="margin-bottom:16px"></div>
+      <div id="histList"></div></div>
+  </div>
+
+  <div id="m-tests" style="display:none">
+    <div class="card flat"><h3>Messfenster</h3>
+      <p class="sub" id="mwText" style="margin-bottom:0"></p></div>
+    <div class="card"><h3>Neuer Wert</h3><p class="sub" id="tDate"></p>
+      <div class="field"><span class="ilbl">Messung</span><select id="tSelect"></select></div>
+      <div class="field"><span class="ilbl" id="tUnit">Wert</span>
+        <input type="number" step="0.1" inputmode="decimal" id="tValue"></div>
+      <button class="btn" id="saveTest" type="button">Wert speichern</button></div>
+    <div class="card"><h3>Körper</h3>
+      <p class="sub">Erster Wert, letzter Wert und Ziel zum 24.01.2027.</p><div id="tTable"></div></div>
+    <div class="card"><h3>Kraft</h3>
+      <p class="sub">Geschätztes 1RM — erster Eintrag gegen deine besten der letzten drei Einheiten.</p><div id="kTable"></div></div>
+    <div class="card flat"><h3>Letzte Einträge</h3><div class="mlist" id="tList"></div></div>
+  </div>
+</section>
+
+<!-- ══════ ESSEN ══════ -->
+<section class="view" id="v-essen">
+  <div class="card"><h3 id="nPhase">—</h3><p class="sub" id="nPhaseSub"></p>
+    <div class="stats" id="nTargets"></div>
+    <p class="hint" id="nSplit" style="margin:12px 0 0"></p></div>
+  <div class="card"><h3>Heute eintragen</h3><p class="sub" id="nDate"></p>
+    <div class="nums">
+      <div><span class="ilbl">Kalorien</span><input type="number" inputmode="numeric" id="i-kcal" placeholder="2000"></div>
+      <div><span class="ilbl">Protein (g)</span><input type="number" inputmode="numeric" id="i-prot" placeholder="140"></div>
+    </div>
+    <div id="nBars" style="margin:16px 0 4px"></div>
+    <button class="btn" id="saveNutri" type="button">Speichern</button></div>
+  <div class="card"><h3>Gewichtstrend</h3>
+    <p class="sub">Sieben-Tage-Schnitt. Die rosa Linien markieren deinen Periodenbeginn — rund um die Periode ist ein Teil des Gewichts Wasser.</p>
+    <div id="wChart"></div><div class="stats" id="wStats" style="margin-top:12px"></div>
+    <div class="card flat" id="wAdvice" style="margin:14px 0 0"></div></div>
+</section>
+
+<!-- ══════ TRENDS ══════ -->
+<section class="view" id="v-trends">
+  <div id="careBox"></div>
+  <div class="card" id="cycCard"><h3>Zyklus</h3>
+    <p class="sub" id="cycSub">—</p>
+    <div class="stats" id="cycStats"></div>
+    <div class="grph cy" style="margin:18px 0 9px">Erfasste Periodenbeginne</div>
+    <div class="startlist" id="startList"></div>
+    <div class="dateline" style="margin-bottom:4px"><input type="date" id="addStart" aria-label="Periodenbeginn nachtragen"><button class="btn ghost sm inl" id="addStartBtn" type="button">Nachtragen</button></div>
+    <div class="grph" style="margin:18px 0 9px">Einstellungen</div>
+    <div class="field"><div class="seg2" id="stContra"><button type="button" data-v="natural">Natürlicher Zyklus</button><button type="button" data-v="hormonal">Hormonell</button></div></div>
+    <div class="nums">
+      <div><span class="ilbl">Zykluslänge (Tage)</span><input type="number" inputmode="numeric" id="stLen"></div>
+      <div><span class="ilbl">Periodendauer (Tage)</span><input type="number" inputmode="numeric" id="stPer"></div>
+    </div>
+    <button class="btn ghost sm" id="stSave" type="button" style="margin-top:12px">Einstellungen speichern</button>
+  </div>
+  <div class="card"><h3>Readiness</h3>
+    <p class="sub">Die Linie ist der Sieben-Tage-Schnitt, rosa markiert den Periodenbeginn. Einzeltage schwanken immer.</p>
+    <div id="rChart"></div><div class="stats" id="rStats" style="margin-top:12px"></div></div>
+  <div class="card"><h3>Körper und Kopf getrennt</h3>
+    <p class="sub">Wenn die zwei Linien auseinanderlaufen, weißt du, woran es liegt.</p>
+    <div id="bmChart"></div></div>
+  <div class="card"><h3>Zyklusmuster</h3>
+    <p class="sub">Dein eigenes Muster statt Lehrbuchwerten. Braucht zwei bis drei Zyklen, bis es belastbar wird.</p>
+    <div id="cycInsights"></div></div>
+  <div class="card"><h3>Zusammenhänge</h3>
+    <p class="sub">Was in deinen Daten zusammenfällt. Das zeigt Muster, nicht Ursachen — und braucht Zeit, bis es aussagekräftig wird.</p>
+    <div id="insights"></div></div>
+  <div class="card"><h3>Verhalten und Readiness</h3>
+    <p class="sub">Deine Readiness an Tagen mit einem Verhalten gegen Tage ohne. Ab vier Einträgen je Seite.</p>
+    <div id="tagInsights"></div></div>
+  <div class="card"><h3>Konsistenz</h3>
+    <p class="sub">Der Wert, der am Ende am meisten erklärt.</p><div class="stats" id="cStats"></div></div>
+  <div class="card flat"><h3>Daten</h3>
+    <p class="sub" id="dataSub" style="margin-bottom:12px">Alles liegt nur auf diesem Gerät. Lad dir alle zwei Wochen eine Sicherung herunter — bei einem neuen Handy spielst du sie einfach wieder ein.</p>
+    <button class="btn sm" id="dlBtn" type="button">Sicherung herunterladen</button>
+    <button class="btn ghost sm" id="ulBtn" type="button" style="margin-top:8px">Sicherung einspielen</button>
+    <input type="file" id="ulFile" accept="application/json,.json,.txt" style="display:none">
+    <button class="btn ghost sm" id="expBtn" type="button" style="margin-top:8px">Als Text anzeigen</button>
+    <textarea id="expBox" style="display:none;margin-top:10px;height:130px;font-size:11px;font-family:ui-monospace,monospace"></textarea>
+    <button class="btn ghost sm" id="impTxtBtn" type="button" style="display:none;margin-top:8px">Text als Sicherung einspielen</button></div>
+  <p class="status" id="statusLine">…</p>
+</section>
+
+<!-- ══════ WISSEN ══════ -->
+<section class="view" id="v-wissen">
+  <div class="card flat" style="margin-bottom:6px">
+    <h3>Der Plan in vier Sätzen</h3>
+    <p class="hint" style="margin-top:7px">Zehn Jahre Training haben dir mehr Muskulatur gebracht, als die meisten je aufbauen — deshalb geht es jetzt darum, rund anderthalb Kilo Fett zu verlieren und dabei stärker zu werden. Dafür: ein moderates Defizit mit viel Protein, ein Plan mit klarem Schwerpunkt auf Po und Unterkörper, und Lasten, die über zwölf Wochen steigen. Dein Zyklus bestimmt nicht den Kalender, aber die Tagesform — über die Readiness. Und gemessen wird immer in derselben Zyklusphase, weil die Waage sonst Wasser zeigt statt Fortschritt.</p>
+  </div>
+
+<div class="acc"><button type="button" aria-expanded="false"><span>1 · Wo du stehst</span><span class="ch">+</span></button><div class="body">
+<div class="scroll"><table class="t"><thead><tr><th>Kennwert</th><th>Jetzt</th><th>Ziel 24.01.27</th></tr></thead><tbody>
+<tr><td>Körpergewicht</td><td>65 kg</td><td class="amb">63,5–64 kg</td></tr>
+<tr><td>Körperfett</td><td>≈ 23 %</td><td class="amb">≈ 21 %</td></tr>
+<tr><td>Fettmasse</td><td>≈ 15 kg</td><td class="amb">≈ 13,5 kg</td></tr>
+<tr><td>Fettfreie Masse</td><td>≈ 50 kg</td><td class="amb">halten oder leicht mehr</td></tr>
+<tr><td>Taille</td><td>Startmessung</td><td class="amb">−2 bis −3 cm</td></tr>
+<tr><td>Po-Umfang</td><td>Startmessung</td><td class="amb">halten</td></tr>
+<tr><td>Squat</td><td>3 × 6 mit 80 kg</td><td class="amb">e1RM +5 %</td></tr>
+<tr><td>KH-Bankdrücken</td><td>16 kg pro Hand</td><td class="amb">e1RM halten, besser +5 %</td></tr>
+<tr><td>Rum. Kreuzheben</td><td>80 kg</td><td class="amb">e1RM +5 %</td></tr>
+</tbody></table></div>
+<h5>Der eigentliche Befund</h5>
+<p>50 Kilo fettfreie Masse bei 1,58 Metern entsprechen einem FFMI von rund 20. Der Durchschnitt bei Frauen liegt um 15. Selbst wenn die 23 Prozent ein paar Punkte danebenliegen: Du hast längst überdurchschnittlich viel Muskulatur. Dein Grundumsatz von 1.500 kcal passt genau dazu — die gängigen Formeln, die mit fettfreier Masse rechnen, landen bei 1.450 bis 1.600.</p>
+<p>Das hat eine unbequeme und eine gute Seite. Die unbequeme: Nennenswerter Muskelaufbau im Defizit ist bei deinem Trainingsalter nicht realistisch — erwartbar ist Erhalt bis ein halbes Kilo mehr. Die gute: Für zwei Prozentpunkte weniger Körperfett reichen rund anderthalb Kilo Fettverlust. Das schafft ein moderates Defizit, ohne dass du hungern oder Kraft abgeben musst.</p>
+<div class="note"><b class="l">Was Muskelaufbau in diesem Plan heißt</b>
+Kraft steigt, während das Fett sinkt. Wenn du in Woche 11 mit mehr Gewicht hockst als in Woche 4 und dabei leichter bist, hast du Muskulatur mindestens gehalten — wahrscheinlich aufgebaut. Das ist der Beweis, den keine Waage liefern kann.</div>
+<h5>Und was das für die Waage heißt</h5>
+<p>Sie bewegt sich wenig: rund ein bis anderthalb Kilo in zwölf Wochen. Spiegel und Maßband ändern sich deutlich mehr. Deshalb misst du vier Dinge parallel — mehr dazu im Messprotokoll.</p>
+</div></div>
+
+<div class="acc"><button type="button" aria-expanded="false"><span>2 · Flacher Bauch, großer Po</span><span class="ch">+</span></button><div class="body">
+<h5>Flacher Bauch: Fett, Muskel, Wasser</h5>
+<p>Gezielt am Bauch abnehmen geht nicht — der Körper entscheidet selbst, wo er Fett abbaut, und am Bauch meist zuletzt. Der flache Bauch entsteht aus drei Dingen: weniger Körperfett insgesamt, einer Bauchmuskulatur, die sich unter der dünneren Schicht abzeichnet, und — oft unterschätzt — Wassereinlagerungen und Blähbauch, die mit dem Zyklus kommen und gehen.</p>
+<p>Deshalb stehen Cable Crunch, hängendes Knieheben und Pallof Press dreimal pro Woche im Plan: Bauchmuskeln reagieren auf Last wie jeder andere Muskel. Und deshalb trackst du Wassereinlagerung als Symptom — damit du an einem aufgeblähten Tag in der späten Lutealphase siehst, dass das Wasser ist und kein Rückschritt.</p>
+<div class="note"><b class="l">Die ehrliche Messgröße</b>
+Für den Bauch zählt das Maßband an zwei Stellen, nicht die Waage: Nabelhöhe und schmalste Stelle, immer im Messfenster. Zwei bis drei Zentimeter weniger in zwölf Wochen sind realistisch.</div>
+<h5>Großer Po: drei Funktionen, drei Werkzeuge</h5>
+<p>Der große Gesäßmuskel streckt die Hüfte, der mittlere und kleine spreizen das Bein ab und formen die obere, seitliche Kontur. Vollständiges Po-Training deckt alle drei Bereiche ab:</p>
+<ul>
+<li><b>Hüftstreckung in Dehnung</b> — Rumänisches Kreuzheben, tiefe Bulgarian Split Squats, Ausfallschritte. Die Last wirkt, während der Muskel lang ist; das gilt als besonders wachstumsstarker Reiz.</li>
+<li><b>Hüftstreckung in Kontraktion</b> — Hip Thrust, Kickbacks, Hyperextensions mit rundem Rücken. Am oberen Punkt ist der Po maximal angespannt.</li>
+<li><b>Abduktion</b> — an der Maschine, sitzend und vorgebeugt. Gering ermüdend, deshalb gut in hoher Frequenz.</li>
+</ul>
+<p>Der Po bekommt dreimal pro Woche Arbeit, insgesamt um die 20 harte Sätze. Er erholt sich schnell, verträgt Frequenz und wächst über steigende Lasten — nicht über das Brennen am Ende des Satzes.</p>
+<div class="note warn"><b class="l">Die ehrliche Einschränkung</b>
+Im Defizit wächst auch der Po langsamer. Zwölf Wochen machen ihn fester, runder und stärker; die größte Volumenzunahme kommt aber in der Phase danach, auf Erhaltung oder leichtem Überschuss. Dieser Plan legt das Fundament: mehr Kraft in genau den Übungen, mit denen du danach aufbaust.</div>
+</div></div>
+
+<div class="acc"><button type="button" aria-expanded="false"><span>3 · Die 12 Wochen</span><span class="ch">+</span></button><div class="body">
+<div class="scroll"><table class="t tn"><thead><tr><th>Block</th><th>Wo.</th><th>Zeitraum</th><th>kcal</th></tr></thead><tbody>
+<tr><td>Einstieg</td><td>0</td><td>29.10.–01.11.26</td><td>2.000</td></tr>
+<tr><td>1 · Volumen</td><td>1–4</td><td>02.11.–29.11.26</td><td>2.000</td></tr>
+<tr><td>Deload</td><td>5</td><td>30.11.–06.12.26</td><td>2.000</td></tr>
+<tr><td>2 · Intensität</td><td>6–7</td><td>07.12.–20.12.26</td><td>2.000</td></tr>
+<tr><td>Feiertage</td><td>8</td><td>21.12.–27.12.26</td><td>2.300</td></tr>
+<tr><td>2 · Intensität</td><td>9</td><td>28.12.–03.01.27</td><td>2.300</td></tr>
+<tr><td>3 · Realisierung</td><td>10–12</td><td>04.01.–24.01.27</td><td>2.000</td></tr>
+</tbody></table></div>
+<p><b>Einstieg:</b> Donnerstag bis Sonntag, zwei oder drei Einheiten mit RPE 7. Es geht nicht um Leistung, sondern darum, die richtigen Startlasten zu finden und die App einzurichten.</p>
+<p><b>Deload in Woche 5:</b> weniger Sätze, gleiche Last. Nicht optional und keine Belohnung — der Teil, in dem die Anpassung passiert.</p>
+<div class="note"><b class="l">Weihnachten ist eingeplant</b>
+Woche 8 und 9 laufen auf Erhaltungskalorien. Über die Feiertage trainierst du zwei- bis dreimal Ganzkörper, je nachdem, was der Kalender hergibt. Woche 9 ist dann mit vollen Speichern eine der stärksten des Plans. Ein Plan, der Weihnachten ignoriert, wird an Weihnachten gebrochen.</div>
+<h5>Der Wochenaufbau</h5>
+<ul>
+<li><b>Tag 1 · Squat &amp; Glutes</b> — Unterkörper, kniedominant</li>
+<li><b>Tag 2 · Oberkörper</b> — Drücken und Ziehen</li>
+<li><b>Tag 3 · Hip Thrust &amp; Hinge</b> — Unterkörper, hüftdominant</li>
+<li><b>Tag 4 · Glutes &amp; Rücken</b> — Po-Volumen, Ziehen, Rumpf</li>
+</ul>
+<p>Feste Wochentage gibt es nicht. Die App schlägt dir die nächste offene Einheit vor und zieht den Oberkörper vor, wenn gestern schon ein schwerer Unterkörpertag war. Einzige Regel: höchstens zwei Trainingstage am Stück.</p>
+<p>Der Oberkörper läuft bewusst auf etwas mehr als Erhaltungsniveau — im Defizit reicht das, um alles zu halten. Die Wachstumsreserven gehen an Po und Beine.</p>
+</div></div>
+
+<div class="acc"><button type="button" aria-expanded="false"><span>4 · RPE und Progression</span><span class="ch">+</span></button><div class="body">
+<div class="scroll"><table class="t"><thead><tr><th>RPE</th><th>Reserve</th><th>Woran du es erkennst</th></tr></thead><tbody>
+<tr><td>6</td><td>4 Wdh.</td><td>fühlt sich nach Aufwärmen an</td></tr>
+<tr><td>7</td><td>3 Wdh.</td><td>zügig, klar unter Kontrolle</td></tr>
+<tr><td>8</td><td>2 Wdh.</td><td>letzte Wdh. sichtbar langsamer</td></tr>
+<tr><td>9</td><td>1 Wdh.</td><td>eine ging noch, keine zwei</td></tr>
+<tr><td>10</td><td>0</td><td>nichts mehr drin</td></tr>
+</tbody></table></div>
+<h5>Wie die Lasten steigen</h5>
+<p>Die Hauptübungen — Squat, Hip Thrust, Rumänisches Kreuzheben, Kurzhantel-Bankdrücken — folgen einer RPE-Vorgabe pro Woche, die in jedem Block ansteigt: von RPE 7 in der Einstiegswoche bis RPE 8–9 am Blockende. Die App zeigt sie bei jeder Übung an.</p>
+<p>Alles andere läuft über Doppelprogression: Schaffst du in allen Sätzen das obere Ende der Wiederholungsspanne bei 1–2 Wiederholungen Reserve, geht beim nächsten Mal das Gewicht hoch — bei Kurzhanteln ein bis zwei Kilo, an Maschinen eine Stufe. Dann arbeitest du dich wieder durch die Spanne nach oben.</p>
+<h5>Deine Startlasten</h5>
+<div class="scroll"><table class="t"><thead><tr><th>Übung</th><th>Bisher</th><th>Einstieg</th></tr></thead><tbody>
+<tr><td>Back Squat</td><td>3 × 6 · 80 kg</td><td class="amb">4 × 6 · 75 kg</td></tr>
+<tr><td>KH-Bankdrücken</td><td>16 kg pro Hand</td><td class="amb">4 × 8 · 14 kg</td></tr>
+<tr><td>Rum. Kreuzheben</td><td>80 kg</td><td class="amb">3 × 8 · 70–75 kg</td></tr>
+<tr><td>Hip Thrust, Klimmzug, Rest</td><td>—</td><td class="amb">in der Einstiegswoche finden</td></tr>
+</tbody></table></div>
+<p>Mehr Sätze, etwas weniger Last — und ab Woche 1 geht es aufwärts. Am Ende von Block 1 solltest du über deinen bisherigen Arbeitsgewichten liegen.</p>
+<h5>Kurzhanteln statt Langhantel</h5>
+<p>Beim Bankdrücken bleibst du bei Kurzhanteln. Für Brust und Trizeps ist der Reiz gleichwertig, der Bewegungsweg größer, und die Schultern finden ihre eigene Bahn. Eingetragen wird immer das Gewicht pro Hand.</p>
+<h5>Rumänisches Kreuzheben als Hinge</h5>
+<p>Konventionelles Kreuzheben steht nicht im Plan. Für Po und Beinbeuger ist das Rumänische die bessere Wahl — Last in der Dehnung, weniger Technik- und Erholungskosten. Genau das braucht ein Po-Schwerpunkt im Defizit.</p>
+<h5>Klimmzüge</h5>
+<p>Mit Unterstützung — Band oder Maschine — lässt du das Gewichtsfeld leer und trägst nur die Wiederholungen ein. Ziel ist, die Unterstützung über den Plan zu verringern.</p>
+</div></div>
+
+<div class="acc"><button type="button" aria-expanded="false"><span>5 · Zyklus und Training</span><span class="ch">+</span></button><div class="body">
+<h5>Was die Forschung sagt</h5>
+<p>Die beste verfügbare Meta-Analyse (McNulty und Kollegen, 2020) findet über die Zyklusphasen im Schnitt höchstens triviale Leistungsunterschiede — am ehesten eine kleine Delle in den ersten Tagen der Periode. Gleichzeitig ist die Streuung zwischen Frauen riesig: Manche merken nichts, andere haben zwei Tage, an denen nichts geht. Die Konsequenz: keinen Trainingsplan um den Zyklus herumbauen, sondern deinen eigenen Zyklus messen und die Tagesform danach steuern.</p>
+<h5>Was du einträgst</h5>
+<ul>
+<li><b>Blutung</b> — keine, Schmier, leicht, mittel, stark. Der erste Tag mit echter Blutung wird automatisch Zyklustag 1, sofern der letzte Beginn mindestens 15 Tage zurückliegt. Schmierblutung zählt nicht als Beginn.</li>
+<li><b>Beschwerden 1–5</b> — wie stark dich der Zyklus heute insgesamt beeinträchtigt.</li>
+<li><b>Symptome</b> — antippen, was zutrifft. Daraus entsteht dein Symptommuster im Trends-Tab.</li>
+</ul>
+<h5>Wie der Zyklus in die Readiness fließt</h5>
+<p>Körper und Kopf bleiben gewichtet wie gehabt. Der Zyklus kommt als Abzug obendrauf — als eigener Teilwert würde er beschwerdefreie Tage künstlich aufwerten.</p>
+<div class="scroll"><table class="t tn"><thead><tr><th>Beschwerden</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead><tbody>
+<tr><td>Abzug</td><td>0</td><td>−3</td><td>−7</td><td>−12</td><td>−18</td></tr>
+</tbody></table></div>
+<p>Dazu kommt ein Phasenwert. Am Anfang ist das nur ein einziger Startwert: −3 an Zyklustag 1–3, wo die Forschung den kleinen Effekt sieht. Nach zwei bis drei Zyklen ersetzt die App ihn durch dein eigenes Muster — gemessen daran, wie dein geschätztes 1RM je Phase von deinem Schnitt abweicht. Bewusst an der Leistung und nicht an der Readiness selbst, sonst würde dieselbe Information doppelt zählen.</p>
+<div class="note cy"><b class="l">Hormonelle Verhütung</b>
+Pille, Ring oder Hormonspirale verändern die natürlichen Hormonschwankungen — je nach Präparat bis hin zum Wegfall des Eisprungs. Dann rechnet die App ohne Phasenwert, und nur die Beschwerden zählen. Umstellen kannst du das jederzeit im Trends-Tab.</div>
+<h5>Waage und Messungen</h5>
+<p>In den Tagen vor der Periode hält der Körper oft 0,5 bis 2 Kilo Wasser. Deshalb vergleicht die App dein Gewicht nicht stur mit vor zwei Wochen, sondern mit demselben Zyklustag im letzten Zyklus. Gemessen wird an Zyklustag 5 bis 10 — dort ist der Wasserhaushalt am stabilsten.</p>
+<h5>Der Zyklus als Frühwarnsystem</h5>
+<p>Ein regelmäßiger Zyklus ist ein Zeichen dafür, dass genug Energie ankommt. Wird er im Defizit plötzlich deutlich länger oder bleibt die Periode aus, ist das ein klassisches Warnsignal für zu wenig Energie — in der Sportmedizin RED-S. Die App meldet sich, sobald die Periode eine Woche überfällig ist oder sich die Zykluslänge um mehr als eine Woche verschiebt.</p>
+<div class="note warn"><b class="l">Dann gilt</b>
+Kalorien auf Erhaltung (2.300) und gynäkologisch abklären lassen. Andere Gründe — Stress, Krankheit, eine Schwangerschaft — klärt dieselbe Untersuchung.</div>
+<h5>Eisen</h5>
+<p>Jede Periode kostet Eisen, und Eisenmangel ist bei trainierenden Frauen häufig — Ausdauer und Erholung leiden, lange bevor das Hämoglobin sinkt. Iss eisenreich (rotes Fleisch, Hülsenfrüchte, Haferflocken) und kombinier pflanzliches Eisen mit Vitamin C. Bei starker Blutung und anhaltender Müdigkeit: Ferritin bestimmen lassen, statt auf Verdacht zu supplementieren.</p>
+</div></div>
+
+<div class="acc"><button type="button" aria-expanded="false"><span>6 · Ernährung: die Logik</span><span class="ch">+</span></button><div class="body">
+<p>Bei 1.500 kcal Grundumsatz, 15 Stunden Arbeit und vier Einheiten pro Woche liegt dein Gesamtumsatz bei grob 2.250 bis 2.350 kcal — mit ±10 Prozent Unsicherheit. Den echten Wert zeigt erst dein Gewichtsverlauf.</p>
+<div class="scroll"><table class="t tn"><thead><tr><th>Phase</th><th>Wo.</th><th>kcal</th><th>P</th><th>KH</th><th>F</th></tr></thead><tbody>
+<tr><td>Defizit · Trainingstag</td><td>0–7</td><td>2.000</td><td>140</td><td>225</td><td>60</td></tr>
+<tr><td>Defizit · Ruhetag</td><td>0–7</td><td>2.000</td><td>140</td><td>180</td><td>80</td></tr>
+<tr><td>Diet-Break · Trainingstag</td><td>8–9</td><td>2.300</td><td>140</td><td>280</td><td>70</td></tr>
+<tr><td>Diet-Break · Ruhetag</td><td>8–9</td><td>2.300</td><td>140</td><td>250</td><td>83</td></tr>
+<tr><td>Defizit II</td><td>10–12</td><td colspan="4">wie Defizit I</td></tr>
+</tbody></table></div>
+<p>Rund 300 kcal unter Erhaltung ergeben etwa −0,25 kg pro Woche. Über zehn Defizitwochen reicht das rechnerisch für mehr als die nötigen anderthalb Kilo Fett — der Puffer ist gewollt, weil Umsatzschätzung und Tracking nie exakt sind.</p>
+<h5>140 g Protein, jeden Tag</h5>
+<p>Rund 2,15 g pro Kilo, verteilt auf vier Mahlzeiten mit je etwa 35 g. Im Defizit ist Protein der wichtigste Hebel, um Muskulatur zu halten — und es sättigt am stärksten. Gleiche Kalorien an jedem Tag; an Trainingstagen mehr Kohlenhydrate, an Ruhetagen mehr Fett.</p>
+<h5>Die Untergrenze: 1.750 kcal</h5>
+<p>Zieh von dem, was du isst, ab, was das Training verbraucht, und teil den Rest durch deine fettfreie Masse — das ist die Energieverfügbarkeit. Bei 2.000 kcal liegst du bei etwa 35 kcal pro Kilo fettfreier Masse: gut für einen moderaten Fettverlust. Unter rund 30 steigt das Risiko für Zyklusstörungen deutlich. Deshalb schlägt die App nie weniger als 1.750 kcal vor; stockt der Trend dort, kommen Schritte dazu, keine weiteren Kürzungen.</p>
+<div class="note"><b class="l">Wie die App anpasst</b>
+Sie vergleicht deinen Sieben-Tage-Schnitt mit demselben Zyklustag im letzten Zyklus — ohne Zyklusdaten mit vier Wochen vorher. Fällt er langsamer als geplant, schlägt sie 100 kcal weniger vor, fällt er zu schnell, 100 mehr. Nach jeder Anpassung wartet sie 14 Tage, bevor sie neu bewertet — vorher sieht man den Effekt nicht.</div>
+<h5>Der Luteal-Puffer</h5>
+<p>In den letzten etwa fünf Tagen vor der Periode steigt bei vielen Frauen der Appetit, und der Energiebedarf liegt leicht höher. Bis zu 150 kcal mehr aus Kohlenhydraten sind dann eingeplant. Über den Zyklus gerechnet kostet das rund 20 kcal am Tag — und hält dich genau in der Phase bei der Stange, in der Diäten sonst kippen.</p>
+<div class="note warn"><b class="l">Wieg trocken, nicht gekocht</b>
+80 g Reis heißt 80 g ungekocht. Gekochter Reis wiegt das Zweieinhalb- bis Dreifache — hier entstehen die Tracking-Fehler, die einen nach acht Wochen ratlos vor der Waage stehen lassen. Fleisch und Fisch ebenfalls roh wiegen.</div>
+</div></div>
+
+<div class="acc"><button type="button" aria-expanded="false"><span>7 · Tagesvorlagen</span><span class="ch">+</span></button><div class="body">
+<p>Kalibrierung, keine Vorschrift. Koch zwei Wochen ungefähr nach diesen Vorlagen, dann hast du ein Gefühl dafür, wie 2.000 kcal mit 140 g Protein aussehen.</p>
+<h5>Trainingstag, Training nachmittags</h5>
+<div class="scroll"><table class="t tn"><thead><tr><th>Lebensmittel</th><th>kcal</th><th>P</th><th>KH</th><th>F</th></tr></thead><tbody><tr class="slot"><td colspan="5">Frühstück · 07:30</td></tr><tr><td>Haferflocken, 60 g</td><td>222</td><td>8</td><td>35</td><td>4</td></tr><tr><td>Skyr, 150 g</td><td>94</td><td>16</td><td>6</td><td>0</td></tr><tr><td>Beeren TK, 100 g</td><td>50</td><td>1</td><td>9</td><td>0</td></tr><tr><td>Mandeln, 15 g</td><td>90</td><td>3</td><td>1</td><td>8</td></tr><tr class="slot"><td colspan="5">Mittag · 12:30</td></tr><tr><td>Hähnchenbrust, roh, 130 g</td><td>143</td><td>30</td><td>0</td><td>2</td></tr><tr><td>Reis, roh, 80 g</td><td>280</td><td>6</td><td>62</td><td>0</td></tr><tr><td>Gemüse, 250 g</td><td>75</td><td>5</td><td>10</td><td>1</td></tr><tr><td>Olivenöl, 15 g</td><td>135</td><td>0</td><td>0</td><td>15</td></tr><tr class="slot"><td colspan="5">Vor dem Training · 16:00</td></tr><tr><td>Banane, 1 mittelgroße</td><td>108</td><td>1</td><td>26</td><td>0</td></tr><tr><td>Whey, 25 g</td><td>95</td><td>20</td><td>2</td><td>2</td></tr><tr class="slot"><td colspan="5">Abendessen · 19:30</td></tr><tr><td>Lachsfilet, roh, 125 g</td><td>250</td><td>25</td><td>0</td><td>16</td></tr><tr><td>Kartoffeln, 300 g</td><td>231</td><td>6</td><td>51</td><td>0</td></tr><tr><td>Gemüse, 200 g</td><td>60</td><td>4</td><td>8</td><td>1</td></tr><tr class="slot"><td colspan="5">Spät · 21:30</td></tr><tr><td>Magerquark, 150 g</td><td>105</td><td>18</td><td>6</td><td>0</td></tr><tr><td>Erdnussbutter, 15 g</td><td>90</td><td>4</td><td>2</td><td>8</td></tr><tr class="sum"><td>Tag gesamt</td><td>2.028</td><td>147</td><td>218</td><td>57</td></tr></tbody></table></div>
+<h5>Ruhetag</h5>
+<div class="scroll"><table class="t tn"><thead><tr><th>Lebensmittel</th><th>kcal</th><th>P</th><th>KH</th><th>F</th></tr></thead><tbody><tr class="slot"><td colspan="5">Frühstück · 08:00</td></tr><tr><td>Eier, 3 Stück</td><td>252</td><td>22</td><td>1</td><td>18</td></tr><tr><td>Vollkornbrot, 80 g</td><td>176</td><td>6</td><td>32</td><td>2</td></tr><tr><td>Avocado, 80 g</td><td>128</td><td>2</td><td>2</td><td>12</td></tr><tr><td>Skyr, 100 g</td><td>63</td><td>11</td><td>4</td><td>0</td></tr><tr class="slot"><td colspan="5">Mittag · 13:00</td></tr><tr><td>Rinderhack 5 %, roh, 150 g</td><td>206</td><td>32</td><td>0</td><td>8</td></tr><tr><td>Reis, roh, 60 g</td><td>210</td><td>4</td><td>47</td><td>0</td></tr><tr><td>Gemüse + Tomatensauce, 250 g</td><td>75</td><td>5</td><td>10</td><td>1</td></tr><tr><td>Olivenöl, 10 g</td><td>90</td><td>0</td><td>0</td><td>10</td></tr><tr class="slot"><td colspan="5">Nachmittag · 16:30</td></tr><tr><td>Harzer Käse, 60 g</td><td>67</td><td>16</td><td>0</td><td>0</td></tr><tr><td>Walnüsse, 20 g</td><td>131</td><td>3</td><td>1</td><td>13</td></tr><tr><td>Apfel, 1 Stück</td><td>81</td><td>0</td><td>18</td><td>0</td></tr><tr class="slot"><td colspan="5">Abendessen · 19:30</td></tr><tr><td>Hähnchenbrust, roh, 150 g</td><td>165</td><td>34</td><td>0</td><td>2</td></tr><tr><td>Süßkartoffel, 250 g</td><td>215</td><td>4</td><td>50</td><td>0</td></tr><tr><td>Gemüse, 200 g</td><td>60</td><td>4</td><td>8</td><td>1</td></tr><tr><td>Olivenöl, 10 g</td><td>90</td><td>0</td><td>0</td><td>10</td></tr><tr class="sum"><td>Tag gesamt</td><td>2.009</td><td>143</td><td>173</td><td>77</td></tr></tbody></table></div>
+<p>Trainierst du morgens, zieh Banane und Whey vor das Training und das Frühstück dahinter.</p>
+</div></div>
+
+<div class="acc"><button type="button" aria-expanded="false"><span>8 · Der Baukasten</span><span class="ch">+</span></button><div class="body">
+<p>Das eigentliche Werkzeug. Wenn du weißt, wie viel von was 25 g Protein sind, brauchst du keine Vorlage mehr.</p>
+<h5>Ein Proteinanker ≈ 25 g Protein</h5>
+<div class="scroll"><table class="t tn"><thead><tr><th>Lebensmittel</th><th>Menge</th><th>kcal</th><th>Fett</th></tr></thead><tbody><tr><td>Hähnchenbrust</td><td>110 g</td><td>121</td><td>2 g</td></tr><tr><td>Pute</td><td>105 g</td><td>110</td><td>1 g</td></tr><tr><td>Seelachs</td><td>135 g</td><td>109</td><td>1 g</td></tr><tr><td>Harzer Käse</td><td>95 g</td><td>106</td><td>0 g</td></tr><tr><td>Magerquark</td><td>210 g</td><td>147</td><td>1 g</td></tr><tr><td>Skyr</td><td>225 g</td><td>142</td><td>0 g</td></tr><tr><td>Whey</td><td>30 g</td><td>114</td><td>2 g</td></tr><tr><td>Rinderhack 5 %</td><td>120 g</td><td>164</td><td>6 g</td></tr><tr><td>Hüttenkäse</td><td>210 g</td><td>206</td><td>9 g</td></tr><tr><td>Tofu natur</td><td>180 g</td><td>234</td><td>14 g</td></tr><tr><td>Eier</td><td>4 Stück</td><td>280</td><td>20 g</td></tr></tbody></table></div>
+<p style="font-size:14.5px;color:var(--dim)">Die oberen sind deine Arbeitspferde im Defizit. Tofu und Eier sind gut, bringen aber viel Fett mit — nimm sie, wenn du ohnehin Fett unterbringen willst.</p>
+<h5>Ein Kohlenhydratbaustein ≈ 40 g</h5>
+<div class="scroll"><table class="t tn"><thead><tr><th>Lebensmittel</th><th>Menge</th><th>kcal</th><th>P</th></tr></thead><tbody><tr><td>Kartoffeln</td><td>235 g</td><td>181</td><td>5 g</td></tr><tr><td>Süßkartoffel</td><td>200 g</td><td>172</td><td>3 g</td></tr><tr><td>Reis</td><td>50 g roh</td><td>175</td><td>4 g</td></tr><tr><td>Nudeln</td><td>55 g roh</td><td>195</td><td>7 g</td></tr><tr><td>Haferflocken</td><td>70 g</td><td>259</td><td>9 g</td></tr><tr><td>Vollkornbrot</td><td>100 g</td><td>220</td><td>8 g</td></tr><tr><td>Banane</td><td>1 große</td><td>162</td><td>2 g</td></tr></tbody></table></div>
+<h5>Ein Fettbaustein ≈ 10 g</h5>
+<div class="scroll"><table class="t tn"><thead><tr><th>Lebensmittel</th><th>Menge</th><th>kcal</th><th>P</th></tr></thead><tbody><tr><td>Olivenöl</td><td>10 g</td><td>90</td><td>0 g</td></tr><tr><td>Erdnussbutter</td><td>20 g</td><td>120</td><td>5 g</td></tr><tr><td>Mandeln</td><td>20 g</td><td>120</td><td>4 g</td></tr><tr><td>Walnüsse</td><td>15 g</td><td>98</td><td>2 g</td></tr><tr><td>Avocado</td><td>65 g</td><td>104</td><td>1 g</td></tr></tbody></table></div>
+<div class="note"><b class="l">Ein Tag in 30 Sekunden</b>
+Vier Proteinanker, viereinhalb Kohlenhydratbausteine, fünf Fettbausteine und 400 g Gemüse: rund 145 g Protein, 220 g Kohlenhydrate, 60 g Fett und 2.050 kcal. An Ruhetagen einen Kohlenhydratbaustein gegen zwei Fettbausteine tauschen.</div>
+<h5>60 Minuten am Sonntag</h5>
+<p>Der Unterschied zwischen einem Plan, der funktioniert, und einem, der im November zerfällt, ist selten Motivation. Es ist die Frage, ob um 12:30 Uhr etwas Essbares da ist. 800 g Hähnchen und 500 g Hack auf zwei Blechen, 25 Minuten bei 180 Grad. 400 g Reis trocken in einen Topf, 1,5 kg Kartoffeln in den Ofen. Gleich in Boxen portionieren — wer morgens noch abwiegen muss, nimmt das Brötchen vom Bäcker.</p>
+<h5>Auswärts</h5>
+<ol>
+<li><b>Zuerst den Proteinanker sichern.</b> Fleisch, Fisch, Eier, Quark — der Rest ergibt sich.</li>
+<li><b>Fett ist die versteckte Variable.</b> Panade, Sauce und Öl sind großzügig bemessen — rechne 15 bis 20 g mehr, als du schätzt.</li>
+<li><b>Ein grob getrackter Tag schlägt einen ungetrackten.</b> Die Genauigkeit interessiert niemanden, die Lückenlosigkeit schon.</li>
+</ol>
+<div class="note warn"><b class="l">Der Fehler, den fast alle machen</b>
+Ein schlechter Tag wird nicht durch einen besonders strengen Tag danach repariert. Wer dienstags 2.900 kcal isst und mittwochs 1.200 gegenzieht, erzeugt zwei schlechte Tage statt einem. Iss danach exakt deine Zielwerte und geh weiter — der Wochenschnitt fängt eine einzelne Abweichung fast vollständig ab.</div>
+</div></div>
+
+<div class="acc"><button type="button" aria-expanded="false"><span>9 · Supplemente</span><span class="ch">+</span></button><div class="body">
+<div class="scroll"><table class="t"><thead><tr><th>Mittel</th><th>Dosis</th><th>Einstufung</th></tr></thead><tbody>
+<tr><td>Kreatin-Monohydrat</td><td>3–5 g täglich</td><td class="amb">Sinnvoll</td></tr>
+<tr><td>Vitamin D3 (Okt–Mär)</td><td>nach Blutwert, sonst 1.000–2.000 IE</td><td class="amb">Sinnvoll</td></tr>
+<tr><td>Whey-Protein</td><td>1 Portion</td><td>Nützlich</td></tr>
+<tr><td>Omega-3 (EPA/DHA)</td><td>1–2 g</td><td>Nützlich</td></tr>
+<tr><td>Koffein</td><td>≈ 200 mg (3 mg/kg)</td><td>Situativ</td></tr>
+<tr><td>Eisen</td><td>nur nach Ferritin-Wert</td><td>Nach Befund</td></tr>
+<tr><td>Fatburner, Detox-Tees, BCAA</td><td>—</td><td class="neg">Spar dir das</td></tr>
+</tbody></table></div>
+<p>Kreatin wirkt auch bei Frauen: mehr Kraft, etwas mehr fettfreie Masse. Kein Ladeprotokoll nötig, die Tageszeit ist egal. Ein Hinweis: In den ersten Wochen lagert der Muskel etwas Wasser ein — 0,5 bis 1 kg auf der Waage, das ist kein Fett. Fang deshalb möglichst vor der Startmessung an, oder schreib den Beginn als Notiz ins Logbuch.</p>
+<p>Koffein nicht nach 14 Uhr — die Halbwertszeit liegt bei fünf bis sechs Stunden, und Schlaf ist mehr wert als eine wache Abendeinheit. Bei 140 g Protein am Tag haben BCAA keinen Zusatznutzen.</p>
+<h5>Flüssigkeit</h5>
+<p>Rund 35 ml pro Kilogramm als Basis, also gut 2,3 Liter, plus 0,5 Liter pro Trainingsstunde. Kontrolle über die Urinfarbe am Morgen — hellgelb ist das Ziel.</p>
+<div class="note warn"><b class="l">Alkohol, nüchtern betrachtet</b>
+Alkohol bremst die Muskelproteinsynthese, verschlechtert den Schlaf und bringt leere Kalorien in ein knappes Budget. Im Logbuch ist er ein Verhalten — nach vier Wochen siehst du deinen eigenen Effekt in Zahlen. Das ist überzeugender als jede Predigt.</div>
+</div></div>
+
+<div class="acc"><button type="button" aria-expanded="false"><span>10 · Recovery</span><span class="ch">+</span></button><div class="body">
+<h5>Schlaf ist Hebel eins</h5>
+<p>Kein Supplement kommt in die Nähe dessen, was eine Stunde mehr Schlaf bewirkt — für Erholung, Hunger und Stimmung. Zielkorridor 7,5 bis 9 Stunden, möglichst gleiche Zeiten, auch am Wochenende.</p>
+<p>In der Lutealphase steigt die Körperkerntemperatur leicht, und viele schlafen schlechter. Ein kühles Schlafzimmer mit 17 bis 19 Grad hilft genau dann am meisten.</p>
+<div class="note warn"><b class="l">Eisbad nach dem Krafttraining ist ein Eigentor</b>
+Kälte direkt nach dem Heben dämpft genau die Signale, über die dein Körper Muskeln aufbaut. Mindestens vier Stunden Abstand, besser ganz weglassen. Sauna hat das umgekehrte Profil: zwei, drei Gänge pro Woche tun Erholung und Wohlbefinden gut.</div>
+<h5>Lebensstress zählt mit</h5>
+<p>Dein Körper unterscheidet nicht zwischen Trainingsstress und Lebensstress. Ein Arbeitstag mit Patientinnen und Patienten ist körperlich und emotional fordernd, auch in Teilzeit. Genau dafür gibt es im Logbuch die Belastungs-Skala — und die Readiness rechnet sie mit ein.</p>
+<p>Foam Rolling und Massage verbessern kurzfristig Bewegungsgefühl und Befinden. Nutze sie, erwarte nichts Physiologisches.</p>
+</div></div>
+
+<div class="acc"><button type="button" aria-expanded="false"><span>11 · Mobility: Screening</span><span class="ch">+</span></button><div class="body">
+<p>Beweglichkeitsarbeit ohne Messung ist Zeitvertreib. Fünf Tests, alle vier Wochen im Messfenster. Die Neutral-Null-Methode kennst du aus der Praxis — nimm das Goniometer, das ist genauer als jede App.</p>
+<h5>Knie-zur-Wand · Ziel ≥ 10 cm</h5>
+<p>Fuß senkrecht zur Wand, Ferse bleibt am Boden, Knie schiebt zur Wand. Gemessen wird der größte Abstand zwischen Zehenspitze und Wand, bei dem das Knie noch berührt. Entscheidet über deine Squat-Tiefe — und damit darüber, wie viel Po der Squat trifft.</p>
+<h5>Hüft-Innenrotation · Ziel ≥ 35°</h5>
+<p>Im Sitz, Oberschenkel fixiert, Unterschenkel nach außen fallen lassen. Fehlt Innenrotation, weicht die Lendenwirbelsäule bei tiefen Lunges und Split Squats aus.</p>
+<h5>BWS-Rotation · Ziel ≥ 45°</h5>
+<p>Seitenlage, Knie fixiert, oberer Arm öffnet zur Gegenseite. Sobald das Becken mitdreht, ist die Messung vorbei.</p>
+<h5>Schulterflexion · Ziel ≥ 170°</h5>
+<p>Rückenlage, Knie angestellt, Lendenwirbelsäule bleibt am Boden. Gestreckter Arm über Kopf Richtung Boden. Wichtig für Klimmzug und Überkopfdrücken ohne Hohlkreuz.</p>
+<h5>Thomas-Test</h5>
+<p>Rücklings an der Bankkante, ein Knie zur Brust, das andere Bein hängt frei. Bleibt der hängende Oberschenkel über der Waagerechten, ist der Hüftbeuger verkürzt — und der bremst die volle Hüftstreckung im Hip Thrust.</p>
+</div></div>
+
+<div class="acc"><button type="button" aria-expanded="false"><span>12 · Mobility: das Programm</span><span class="ch">+</span></button><div class="body">
+<h5>Täglich zehn Minuten, gleiche Reihenfolge</h5>
+<p>Abends funktioniert am besten — dann steht es nicht in Konkurrenz zum Training.</p>
+<ol>
+<li><b>Sprunggelenk-Rocking</b> — 2 × 10 pro Seite, 5 s halten. Ausfallschritt, Ferse am Boden, Knie schiebt über die Zehen.</li>
+<li><b>90/90 mit aktiver Rotation</b> — 2 × 8 pro Seite. Beide Knie aktiv abheben und wieder ablegen, ohne Hände.</li>
+<li><b>Couch Stretch mit Beckenaufrichtung</b> — 2 × 45 s pro Seite. Po anspannen, Becken aufrichten — sonst dehnst du die Lendenwirbelsäule statt des Hüftbeugers.</li>
+<li><b>Open Book</b> — 8 langsame Wiederholungen pro Seite. Das Becken bleibt liegen.</li>
+<li><b>Wall Slides</b> — 2 × 10. Rücken und Unterarme an der Wand, Arme nach oben schieben, ohne dass die Lendenwirbelsäule abhebt.</li>
+<li><b>Katze-Kuh</b> — 10 langsame Durchgänge. Die Gegenbewegung zu langen Phasen im Vorbeugen, am Behandlungstisch wie am Schreibtisch.</li>
+</ol>
+<div class="note"><b class="l">Der wichtigste Satz hier</b>
+Beweglichkeit, die du nicht unter Last kontrollierst, verschwindet unter Last. Passives Dehnen verschiebt vor allem die Dehntoleranz. Deshalb steht am Ende ernsthafter Mobility-Arbeit Kraft in der Endposition.</div>
+<h5>Loaded Mobility, zweimal pro Woche</h5>
+<p>Nach Tag 1 und Tag 3, zehn Minuten, moderate Lasten, volle Kontrolle.</p>
+<ul>
+<li><b>ATG Split Squat</b> — 3 × 8 pro Bein. Hinteres Knie fast am Boden, vorderes Knie deutlich über die Zehen, Ferse unten.</li>
+<li><b>Cossack Squat</b> — 3 × 6 pro Seite, Kettlebell vor der Brust. Adduktoren und Hüfte gleichzeitig.</li>
+<li><b>90/90-Übergänge</b> — 3 × 6 ohne Hände, später mit leichter Scheibe.</li>
+</ul>
+<h5>Die fünf Minuten vor dem Training</h5>
+<p>Kein langes statisches Dehnen — Halten über 60 Sekunden senkt kurzfristig die Kraft. Stattdessen: Sprunggelenk-Rocking 10 pro Seite, World's Greatest Stretch 5 pro Seite, Glute Bridge 15, Beinpendel vor und seitlich je 10. An Oberkörpertagen dazu Band Pull-Aparts 2 × 15.</p>
+</div></div>
+
+<div class="acc"><button type="button" aria-expanded="false"><span>13 · Messprotokoll</span><span class="ch">+</span></button><div class="body">
+<p>Vergleichbarkeit schlägt Präzision. Eine leicht ungenaue Messung, die du jedes Mal identisch durchführst, ist wertvoller als eine perfekte Einzelmessung.</p>
+<div class="scroll"><table class="t"><thead><tr><th>Was</th><th>Wie</th></tr></thead><tbody>
+<tr><td>Messfenster</td><td>Zyklustag 5–10, morgens, nüchtern, nach der Toilette</td></tr>
+<tr><td>Körperfett</td><td>immer dasselbe Gerät, gleiche Uhrzeit</td></tr>
+<tr><td>Taille</td><td>Nabelhöhe und schmalste Stelle, ausgeatmet</td></tr>
+<tr><td>Po</td><td>breiteste Stelle, Füße zusammen</td></tr>
+<tr><td>Oberschenkel</td><td>Mitte zwischen Leiste und Knie</td></tr>
+<tr><td>Oberarm</td><td>Mitte zwischen Schulter und Ellenbogen, locker</td></tr>
+<tr><td>Fotos</td><td>vorne, seitlich, hinten; gleiches Licht, gleiche Kleidung</td></tr>
+<tr><td>Mobility</td><td>die fünf Tests aus dem Screening</td></tr>
+</tbody></table></div>
+<p>Die App öffnet das Messfenster jeden Zyklus automatisch und zeigt es im Heute-Tab an. Bei hormoneller Verhütung oder ohne Zyklusdaten misst du alle vier Wochen am gleichen Wochentag.</p>
+<h5>Kraft</h5>
+<p>Kein echtes 1RM. Die App schätzt dein Maximum aus jedem Satz, den du einträgst. In Woche 12 machst du den letzten Satz der Hauptübungen als AMRAP — so viele saubere Wiederholungen wie möglich, Abbruch bei RPE 9. Das ergibt die Abschlusswerte.</p>
+<div class="note"><b class="l">Die Vier-Signale-Regel</b>
+Taille, Körperfett, Kraft und Gewicht. Es wird Wochen geben, in denen die Waage stillsteht und trotzdem alles funktioniert. Gehen drei der vier Signale in die richtige Richtung, ist alles gut.</div>
+</div></div>
+
+<div class="acc"><button type="button" aria-expanded="false"><span>14 · Die sechs Wege, das zu vermasseln</span><span class="ch">+</span></button><div class="body">
+<h5>1 · Schneller wollen</h5>
+<p>Ein Kilo pro Woche wäre möglich und wäre falsch. Du würdest Kraft verlieren, schlechter schlafen und deinen Zyklus riskieren. Das Tempo dieses Plans ist Absicht.</p>
+<h5>2 · Nur die Waage anschauen</h5>
+<p>Zyklus, Kreatin, Salz und ein später Restaurantbesuch verschieben das Gewicht um ein bis zwei Kilo — ohne ein Gramm Fett. Zählen tun Trend, Taille und Kraft.</p>
+<h5>3 · Unter 1.750 kcal gehen</h5>
+<p>Stagniert der Trend, kommen erst Schritte dazu. Weniger essen unterhalb der Untergrenze kostet Muskulatur, Leistung und im schlimmsten Fall den Zyklus.</p>
+<h5>4 · Cardio statt Hantel</h5>
+<p>Mehr Cardio macht hungriger und frisst Erholung, die der Po zum Wachsen braucht. 8.000 Schritte am Tag und zweimal Zone 2 pro Woche reichen. Im Zweifel gewinnt die Hantel.</p>
+<h5>5 · Deloads auslassen, weil es gerade läuft</h5>
+<p>Es läuft, <i>weil</i> du Deloads machst. Die Woche, in der du am wenigsten aussetzen willst, ist meistens die, in der du es am dringendsten brauchst.</p>
+<h5>6 · Den Zyklus zur Ausrede oder zum Tabu machen</h5>
+<p>Beides kostet Fortschritt. Wer an jedem Periodentag pausiert, verliert fast ein Fünftel des Plans; wer starke Beschwerden ignoriert, trainiert schlecht und riskiert mehr. Eintragen und die Readiness entscheiden lassen.</p>
+</div></div>
+
+<p class="status">Plan für Tessa · Start 29.10.2026 · Abschluss 24.01.2027. Bei anhaltenden Schmerzen, ausbleibender Periode oder ungewöhnlicher Erschöpfung gehört das ärztlich abgeklärt und nicht wegtrainiert.</p>
+</section>
+</div>
+
+<nav>
+  <button type="button" data-v="heute" aria-current="page"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>Heute</button>
+  <button type="button" data-v="training"><svg viewBox="0 0 24 24"><path d="M6 6v12M18 6v12M3 9v6M21 9v6M6 12h12"/></svg>Training</button>
+  <button type="button" data-v="essen"><svg viewBox="0 0 24 24"><path d="M5 3v8a3 3 0 006 0V3M8 11v10M17 3c-1.5 2-2 4-2 6s.5 3 2 3v9"/></svg>Essen</button>
+  <button type="button" data-v="trends"><svg viewBox="0 0 24 24"><path d="M3 20h18M6 16l4-5 3 3 5-7"/></svg>Trends</button>
+  <button type="button" data-v="wissen"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 012-2h13v18H6a2 2 0 01-2-2zM9 7h7M9 11h7"/></svg>Wissen</button>
+</nav>
+
+<script>
+"use strict";
+/* ══ Plan ══ */
+var MON0=new Date(2026,9,26), START=new Date(2026,9,29), END=new Date(2027,0,24);
+var LASTW=12, DELOADS=[5], HOLW=8, TESTW=12, FLOOR=1750;
+var BREAK_START="2026-12-21", BREAK_END="2027-01-03";
+var RPEW={0:"7",1:"7",2:"7–8",3:"8",4:"8–9",5:"7",6:"8",7:"8–9",8:"7",9:"8–9",10:"8",11:"8–9",12:"9"};
+var C_ACC="#F08A5D",C_INFO="#A3B8E8",C_OK="#7DCB9F",C_CYC="#E07FAF",C_WARN="#E8605A";
+
+var BLOCKS=[
+ {id:0,name:"Block 1 · Volumen",short:"Volumen",focus:"Höchstes Volumen des Plans. Lasten Woche für Woche steigern, die Technik bleibt sauber."},
+ {id:1,name:"Block 2 · Intensität",short:"Intensität",focus:"Weniger Wiederholungen, mehr Last. Hauptübungen mit zwei bis drei Minuten Pause."},
+ {id:2,name:"Feiertage",short:"Feiertage",focus:"Zwei bis drei Ganzkörpereinheiten, je nachdem, was der Kalender hergibt. Erhaltungskalorien, kein schlechtes Gewissen."},
+ {id:3,name:"Block 3 · Realisierung",short:"Realisierung",focus:"Die Lasten aus Woche 4 schlagen — im Defizit. Das ist der Beleg für die Rekomposition."}];
+function blockOf(w){return w===HOLW?BLOCKS[2]:w<=5?BLOCKS[0]:w<=9?BLOCKS[1]:BLOCKS[3];}
+
+function ex(n,s,r,t,m){return{n:n,s:s,r:r,t:t||"",m:!!m};}
+var SESSIONS={
+0:[{t:"Squat & Glutes",g:"Unterkörper A · kniedominant · Rumpf am Ende",e:[
+     ex("Back Squat",4,"6","",1),ex("Bulgarian Split Squat",3,"10 / Bein","Oberkörper leicht vor"),
+     ex("Beinpresse",3,"12","Füße hoch und breit"),ex("Beinbeuger sitzend",3,"12"),
+     ex("Abduktion",3,"20"),ex("Cable Crunch",3,"12")]},
+   {t:"Oberkörper",g:"Drücken und Ziehen",e:[
+     ex("KH-Bankdrücken",4,"8","pro Hand",1),ex("Brustgestütztes Rudern",4,"10"),
+     ex("KH-Schulterdrücken",3,"10"),ex("Latzug",3,"12","neutraler Griff"),
+     ex("Seitheben",3,"15–20"),ex("Bizeps / Trizeps",2,"12–15","Supersatz")]},
+   {t:"Hip Thrust & Hinge",g:"Unterkörper B · hüftdominant · Rumpf am Ende",e:[
+     ex("Hip Thrust",4,"10","",1),ex("Rumänisches Kreuzheben",3,"8","",1),
+     ex("Walking Lunges",3,"12 / Bein","lange Schritte"),ex("45°-Hyperextension",3,"15","Rücken rund, Po treibt"),
+     ex("Beinbeuger liegend",3,"12"),ex("Hängendes Knieheben",3,"10–12")]},
+   {t:"Glutes & Rücken",g:"Po-Volumen, Ziehen, Rumpf",e:[
+     ex("Step-Up",3,"10 / Bein","Box kniehoch"),ex("Kabel-Kickback",3,"15 / Bein"),
+     ex("Abduktion vorgebeugt",3,"20"),ex("Klimmzug",4,"6–8","Unterstützung? kg leer lassen"),
+     ex("Einarmiges KH-Rudern",3,"10"),ex("Pallof Press",3,"12 / Seite")]}],
+1:[{t:"Squat & Glutes",g:"Unterkörper A · schwer · Rumpf am Ende",e:[
+     ex("Back Squat",5,"4","",1),ex("Bulgarian Split Squat",3,"8 / Bein","Oberkörper leicht vor"),
+     ex("Beinpresse",3,"10","Füße hoch und breit"),ex("Beinbeuger sitzend",3,"10"),
+     ex("Abduktion",3,"15"),ex("Cable Crunch",3,"12")]},
+   {t:"Oberkörper",g:"Drücken und Ziehen · schwer",e:[
+     ex("KH-Bankdrücken",4,"6","pro Hand",1),ex("Brustgestütztes Rudern",4,"8"),
+     ex("KH-Schulterdrücken",3,"8"),ex("Latzug",3,"10","neutraler Griff"),
+     ex("Seitheben",3,"15"),ex("Bizeps / Trizeps",2,"10–12","Supersatz")]},
+   {t:"Hip Thrust & Hinge",g:"Unterkörper B · schwer · Rumpf am Ende",e:[
+     ex("Hip Thrust",4,"6","",1),ex("Rumänisches Kreuzheben",4,"6","",1),
+     ex("Walking Lunges",3,"10 / Bein","lange Schritte"),ex("45°-Hyperextension",3,"12","mit Scheibe"),
+     ex("Beinbeuger liegend",3,"10"),ex("Hängendes Knieheben",3,"10","Beine gestreckter")]},
+   {t:"Glutes & Rücken",g:"Po-Volumen, Ziehen, Rumpf",e:[
+     ex("Step-Up",3,"8 / Bein","schwerer als in Block 1"),ex("Kabel-Kickback",3,"12 / Bein"),
+     ex("Abduktion vorgebeugt",3,"15"),ex("Klimmzug",4,"5","weniger Unterstützung"),
+     ex("Einarmiges KH-Rudern",3,"8"),ex("Pallof Press",3,"12 / Seite")]}],
+2:[{t:"Ganzkörper A",g:"Wenn das Studio offen hat",e:[
+     ex("Back Squat",3,"5","",1),ex("Hip Thrust",3,"8","",1),ex("KH-Bankdrücken",3,"8","pro Hand",1),
+     ex("Latzug",3,"10"),ex("Cable Crunch",2,"12")]},
+   {t:"Ganzkörper B",g:"Mindestens ein Tag Abstand zu A",e:[
+     ex("Rumänisches Kreuzheben",3,"6","",1),ex("Walking Lunges",2,"10 / Bein"),ex("Klimmzug",3,"6"),
+     ex("KH-Schulterdrücken",3,"10"),ex("Abduktion",2,"20")]},
+   {t:"Ganzkörper A (2)",g:"Nur, wenn die Feiertage es hergeben",e:[
+     ex("Back Squat",3,"5","",1),ex("Hip Thrust",3,"8","",1),ex("KH-Bankdrücken",3,"8","pro Hand",1),
+     ex("Latzug",3,"10"),ex("Cable Crunch",2,"12")]},
+   {t:"Bewegung & Mobility",g:"Kein Krafttraining — eine 1 eintragen reicht",e:[
+     ex("Spaziergang",1,"45 min"),ex("Mobility-Routine",1,"15 min")]}],
+3:[{t:"Squat & Glutes",g:"Unterkörper A · Ziel: Last aus Woche 4 plus 5–10 %",e:[
+     ex("Back Squat",3,"6","",1),ex("Bulgarian Split Squat",3,"8 / Bein","Oberkörper leicht vor"),
+     ex("Beinpresse",3,"12","Füße hoch und breit"),ex("Beinbeuger sitzend",3,"12"),
+     ex("Abduktion",3,"20"),ex("Cable Crunch",3,"15")]},
+   {t:"Oberkörper",g:"Ziel: eine Gewichtsstufe über Woche 4",e:[
+     ex("KH-Bankdrücken",3,"8","pro Hand",1),ex("Brustgestütztes Rudern",3,"10"),
+     ex("KH-Schulterdrücken",3,"10"),ex("Latzug",3,"12","neutraler Griff"),
+     ex("Seitheben",3,"15–20"),ex("Bizeps / Trizeps",2,"12–15","Supersatz")]},
+   {t:"Hip Thrust & Hinge",g:"Unterkörper B · Ziel: Woche 4 plus 10 %",e:[
+     ex("Hip Thrust",4,"8","",1),ex("Rumänisches Kreuzheben",3,"8","",1),
+     ex("Walking Lunges",3,"12 / Bein","lange Schritte"),ex("45°-Hyperextension",3,"15","Rücken rund, Po treibt"),
+     ex("Beinbeuger liegend",3,"12"),ex("Hängendes Knieheben",3,"12")]},
+   {t:"Glutes & Rücken",g:"Po-Volumen, Ziehen, Rumpf",e:[
+     ex("Step-Up",3,"10 / Bein","Box kniehoch"),ex("Kabel-Kickback",3,"15 / Bein"),
+     ex("Abduktion vorgebeugt",3,"20"),ex("Klimmzug",4,"6–8","Unterstützung? kg leer lassen"),
+     ex("Einarmiges KH-Rudern",3,"10"),ex("Pallof Press",3,"12 / Seite")]}]};
+
+var PHASES=[
+ {w:[0,7],n:"Defizit I",kcal:2000,p:140,cT:225,fT:60,cR:180,fR:80,rate:-0.25,note:"Rund 300 kcal unter Erhaltung. Ziel: −0,2 bis −0,3 kg pro Woche — Kraft hat Vorrang vor Tempo."},
+ {w:[8,9],n:"Diet-Break",kcal:2300,p:140,cT:280,fT:70,cR:250,fR:83,rate:0,note:"Weihnachten und Neujahr auf Erhaltung. Bewusst eingeplant — das Gewicht soll ungefähr stabil bleiben."},
+ {w:[10,12],n:"Defizit II",kcal:2000,p:140,cT:225,fT:60,cR:180,fR:80,rate:-0.25,note:"Zweite Defizitphase mit vollen Speichern aus dem Diet-Break. Jetzt zählen die Lasten."}];
+function phaseOf(w){for(var i=0;i<PHASES.length;i++)if(w>=PHASES[i].w[0]&&w<=PHASES[i].w[1])return PHASES[i];return PHASES[0];}
+function isDeload(w){return DELOADS.indexOf(w)>-1;}
+function targets(ph){var off=S.settings.kcalOffset||0,k=ph.kcal+off;
+  if(ph.rate<0&&k<FLOOR)k=FLOOR;var dc=Math.round((k-ph.kcal)/4);
+  return{kcal:k,p:ph.p,cT:ph.cT+dc,fT:ph.fT,cR:ph.cR+dc,fR:ph.fR};}
+
+var TAGS=["Schrittziel erreicht","Cardio","Mobility gemacht","Alkohol","Spät gegessen","Wenig getrunken","Koffein nach 14 Uhr","Bildschirm vor dem Bett","Sauna","Kaltbad","Foam Rolling","Harter Arbeitstag","Gereist","Krank"];
+var SYMS=["Krämpfe","Wassereinlagerung","Heißhunger","Kopfschmerz","Brustspannen","Gereizt","Müde"];
+var FLOWS=[["none","keine"],["spot","Schmier"],["light","leicht"],["medium","mittel"],["heavy","stark"]];
+var SYMPEN=[0,-3,-7,-12,-18];
+var PHK=["mens","foll","ovu","lut1","lut2"];
+var PHN={mens:"Menstruation",foll:"Follikelphase",ovu:"Eisprung",lut1:"Luteal früh",lut2:"Luteal spät",late:"überfällig"};
+var MDEFS=[
+ {k:"kg",n:"Körpergewicht",u:"kg",goal:64,lower:true},
+ {k:"kfa",n:"Körperfett",u:"%",goal:21,lower:true},
+ {k:"waistN",n:"Taille Nabelhöhe",u:"cm",rel:-3},
+ {k:"waistS",n:"Taille schmalste Stelle",u:"cm",rel:-2},
+ {k:"hip",n:"Po, breiteste Stelle",u:"cm"},
+ {k:"thigh",n:"Oberschenkel",u:"cm"},
+ {k:"arm",n:"Oberarm",u:"cm"},
+ {k:"ktw",n:"Knie-zur-Wand",u:"cm",goal:10,lower:false},
+ {k:"hir",n:"Hüft-Innenrotation",u:"°",goal:35,lower:false},
+ {k:"tsr",n:"BWS-Rotation",u:"°",goal:45,lower:false},
+ {k:"shf",n:"Schulterflexion",u:"°",goal:170,lower:false}];
+var KEYEX=["Back Squat","Hip Thrust","Rumänisches Kreuzheben","KH-Bankdrücken","Klimmzug"];
+var START_HINT={"Back Squat":"Start ≈ 75 kg — aus deinen 3 × 6 mit 80 kg","KH-Bankdrücken":"Start ≈ 14 kg pro Hand","Rumänisches Kreuzheben":"Start ≈ 70–75 kg, RPE 7 entscheidet"};
+
+/* ══ Speicher ══ */
+var KEYS=["checkins","training","nutrition","tests","cycle","settings"];
+var S={checkins:{},training:{},nutrition:{},tests:[],cycle:{starts:[],auto:{}},settings:{}}, DB=null, dirty={}, timer=null;
+var LSK="tessaOS";
+function lsGet(){try{var r=localStorage.getItem(LSK);return r?JSON.parse(r):null;}catch(e){return null;}}
+function lsSet(){try{localStorage.setItem(LSK,JSON.stringify(S));}catch(e){}}
+function normalize(){
+  if(!S.checkins||typeof S.checkins!=="object")S.checkins={};
+  if(!S.training||typeof S.training!=="object")S.training={};
+  if(!S.nutrition||typeof S.nutrition!=="object")S.nutrition={};
+  if(!Array.isArray(S.tests))S.tests=[];
+  if(!S.cycle||typeof S.cycle!=="object")S.cycle={};
+  if(!Array.isArray(S.cycle.starts))S.cycle.starts=[];
+  if(!S.cycle.auto||typeof S.cycle.auto!=="object")S.cycle.auto={};
+  if(!S.settings||typeof S.settings!=="object")S.settings={};}
+function markDirty(k){S._u=Date.now();
+  if(k&&S[k]!==undefined)dirty[k]=1;else KEYS.forEach(function(x){dirty[x]=1;});
+  lsSet();clearTimeout(timer);timer=setTimeout(pushDB,1400);}
+function pushDB(){if(!DB)return;var ks=Object.keys(dirty);dirty={};ks.forEach(function(k){
+  try{DB.doc("state/"+k).set({v:S[k],u:S._u||Date.now()}).catch(function(){});}catch(e){}});}
+async function initDB(){
+  var el=$("statusLine");
+  try{DB=await window.claude.use("db");}catch(e){DB=null;}
+  if(!DB){el.textContent="Gespeichert auf diesem Gerät.";return;}
+  el.textContent="Synchronisiert über deine Geräte.";
+  var rem={},ru=0;
+  for(var i=0;i<KEYS.length;i++){try{
+    var sn=await DB.doc("state/"+KEYS[i]).get();
+    if(sn&&sn.exists){var d=sn.data();if(d&&d.v!==undefined){rem[KEYS[i]]=d.v;ru=Math.max(ru,d.u||0);}}
+  }catch(e){}}
+  if(Object.keys(rem).length&&ru>=(S._u||0)){for(var k in rem)S[k]=rem[k];S._u=ru;normalize();lsSet();renderAll();}
+}
+
+/* ══ Zeit ══ */
+function iso(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
+function pISO(s){var p=s.split("-");return new Date(+p[0],+p[1]-1,+p[2]);}
+function days(a,b){return Math.round((b-a)/86400000);}
+function addDays(d,n){var x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()+n);return x;}
+function weekOf(d){return Math.floor(days(MON0,d)/7);}
+function weekStart(w){return addDays(MON0,7*w);}
+function fmtD(d){return d.toLocaleDateString("de-DE",{weekday:"short",day:"2-digit",month:"2-digit"});}
+function fmtDM(d){return String(d.getDate()).padStart(2,"0")+"."+String(d.getMonth()+1).padStart(2,"0")+".";}
+function fmtDMY(d){return fmtDM(d)+String(d.getFullYear()).slice(2);}
+function shortD(s){return s.slice(8)+"."+s.slice(5,7)+".";}
+function fmtK(n){return Number(n).toLocaleString("de-DE");}
+var CUR={};
+function computeCur(){
+  var n=new Date();n.setHours(0,0,0,0);
+  CUR.today=iso(n);CUR.pre=n<START;CUR.post=n>END;
+  CUR.week=Math.min(Math.max(weekOf(n),0),LASTW);
+  CUR.block=blockOf(CUR.week);CUR.phase=phaseOf(CUR.week);CUR.deload=isDeload(CUR.week);
+  CUR.cd=Math.max(0,days(n,END));
+  CUR.ci=cycleInfo(CUR.today);
+  CAL=calibrate();
+}
+
+/* ══ Zyklus ══ */
+function hormonal(){return S.settings.contra==="hormonal";}
+function starts(){return(S.cycle.starts||[]).slice().sort();}
+function intervals(){var st=starts(),iv=[];
+  for(var i=1;i<st.length;i++){var d=days(pISO(st[i-1]),pISO(st[i]));if(d>=18&&d<=45)iv.push(d);}return iv;}
+function avgLen(){var iv=intervals().slice(-6),base=S.settings.cycleLen||28;
+  if(iv.length>=2)return Math.round(mean(iv));
+  if(iv.length===1)return Math.round((iv[0]+base)/2);return base;}
+function realFlow(f){return f==="light"||f==="medium"||f==="heavy";}
+function cycleInfo(ds){
+  var st=starts();if(!st.length)return null;
+  var s=null,nx=null;
+  for(var i=st.length-1;i>=0;i--)if(st[i]<=ds){s=st[i];nx=st[i+1]||null;break;}
+  if(!s)return null;
+  var day=days(pISO(s),pISO(ds))+1,L=avgLen(),P=S.settings.periodLen||5;
+  var len=nx?days(pISO(s),pISO(nx)):L;if(len<18||len>45)len=L;
+  var ov=len-14,key,label;
+  if(day<=P){key="mens";label="Menstruation";}
+  else if(day<ov-1){key="foll";label="Follikelphase";}
+  else if(day<=ov+1){key="ovu";label="Eisprung-Fenster";}
+  else if(day<=len-5){key="lut1";label="Lutealphase früh";}
+  else if(day<=len){key="lut2";label="Lutealphase spät";}
+  else{key="late";label=day-len<=3?"Periode erwartet":"Periode überfällig";}
+  return{start:s,day:day,len:len,key:key,label:label};
+}
+function wouldStart(d){var st=starts();if(st.indexOf(d)>-1)return false;
+  var last=null;st.forEach(function(s){if(s<d)last=s;});
+  if(last&&days(pISO(last),pISO(d))<15)return false;
+  var pc=S.checkins[iso(addDays(pISO(d),-1))];return!(pc&&realFlow(pc.flow));}
+function updateCycleStart(d){
+  var c=S.checkins[d]||{},st=S.cycle.starts,auto=S.cycle.auto;
+  if(realFlow(c.flow)){if(wouldStart(d)){st.push(d);st.sort();auto[d]=1;markDirty("cycle");return"new";}}
+  else{var i=st.indexOf(d);if(i>-1&&auto[d]){st.splice(i,1);delete auto[d];markDirty("cycle");return"removed";}}
+  return null;}
+function addStart(d){var st=S.cycle.starts;if(st.indexOf(d)<0){st.push(d);st.sort();}
+  if(S.cycle.auto[d])delete S.cycle.auto[d];markDirty("cycle");}
+function saveCycleSettings(contra,len,per){
+  S.settings.contra=contra==="hormonal"?"hormonal":"natural";
+  if(len>=18&&len<=45)S.settings.cycleLen=len;
+  if(per>=2&&per<=10)S.settings.periodLen=per;
+  S.settings.setup=true;markDirty("settings");}
+
+var CAL={ok:false,n:0,by:{},pct:{},cnt:{}};
+function calibrate(){
+  var by={},all=[],r={ok:false,n:0,by:{},pct:{},cnt:{}};
+  if(hormonal()||!starts().length)return r;
+  Object.keys(S.training).forEach(function(d){var p=perfIndex(d);if(p==null)return;
+    var ci=cycleInfo(d);if(!ci||ci.key==="late")return;(by[ci.key]=by[ci.key]||[]).push(p);all.push(p);});
+  r.n=all.length;
+  var ks=PHK.filter(function(k){return by[k]&&by[k].length>=3;});
+  if(all.length<16||ks.length<3)return r;
+  var m=mean(all);r.ok=true;
+  ks.forEach(function(k){var pct=(mean(by[k])-m)*100;r.pct[k]=pct;r.cnt[k]=by[k].length;
+    r.by[k]=Math.max(-6,Math.min(3,Math.round(pct*2)));});
+  return r;}
+function phasePrior(ci){if(!ci||hormonal())return 0;
+  if(CAL.ok&&CAL.by[ci.key]!=null)return CAL.by[ci.key];
+  return ci.day<=3?-3:0;}
+function cyclePen(c,ci){var sym=(c&&c.cyc)?SYMPEN[c.cyc-1]:0,ph=phasePrior(ci);return{sym:sym,ph:ph,total:sym+ph};}
+function fmtPts(v){return v===0?"±0":v>0?"+"+v:"−"+Math.abs(v);}
+
+/* ══ Scores ══ */
+var M5=[10,32,58,82,100], M5I=[100,82,58,32,10];
+function sleepScore(h){return h<5?15:h<6?38:h<6.5?55:h<7?70:h<7.5?82:h<=8.5?100:h<=9.5?92:80;}
+function wavg(items){var s=0,w=0;items.forEach(function(x){if(x[0]!=null){s+=x[0]*x[1];w+=x[1];}});return w?Math.round(s/w):null;}
+function bodyScore(c){if(!c)return null;return wavg([
+  [c.sleepH!=null?sleepScore(c.sleepH):null,.38],
+  [c.sleepQ?M5[c.sleepQ-1]:null,.30],
+  [c.soreness?M5I[c.soreness-1]:null,.32]]);}
+function mindScore(c){if(!c)return null;return wavg([
+  [c.mood?M5[c.mood-1]:null,.30],
+  [c.motivation?M5[c.motivation-1]:null,.26],
+  [c.focus?M5[c.focus-1]:null,.22],
+  [c.stress?M5I[c.stress-1]:null,.22]]);}
+function baseOf(c){var b=bodyScore(c),m=mindScore(c);
+  if(b==null&&m==null)return null;if(b==null)return m;if(m==null)return b;
+  return Math.round(.55*b+.45*m);}
+function clamp100(v){return Math.max(0,Math.min(100,v));}
+function readinessOf(c,ds){var b=baseOf(c);if(b==null)return null;return clamp100(b+cyclePen(c,cycleInfo(ds)).total);}
+function R(ds){return readinessOf(S.checkins[ds],ds);}
+
+function advice(b,m,pen,ci,c){
+  var base=(b==null||m==null)?(b==null?m:b):Math.round(.55*b+.45*m);
+  if(base==null)return["—",""];
+  var r=clamp100(base+pen.total),t;
+  if(b!=null&&m!=null&&b>=68&&m<50)
+    t="Körper ist da, der Kopf nicht. Plan stur durchziehen, aber heute keine Entscheidungen im Training — keine Rekordversuche, keine spontanen Zusatzsätze.";
+  else if(b!=null&&m!=null&&m>=68&&b<50)
+    t="Der Kopf will, der Körper noch nicht. Hauptübung wie geplant, Assistenz um ein Drittel kürzen.";
+  else if(r>=80)t="Volle Belastung. Heute darfst du an die obere Kante der RPE-Vorgabe.";
+  else if(r>=65)t="Normal trainieren. Plan wie geschrieben.";
+  else if(r>=50)t="Grenzwertig. Hauptübung normal, Assistenz um ein Drittel kürzen.";
+  else t="Runterfahren. Volumen halbieren, kein Satz über RPE 7 — oder Spaziergang und Mobility statt Studio.";
+  if(c&&c.cyc>=4)t+=" Starke Zyklusbeschwerden: Hauptübung höchstens RPE 7, den Rest nach Gefühl. Leichte Bewegung hilft vielen bei Krämpfen — Durchziehen um jeden Preis hilft niemandem.";
+  else if(ci&&!hormonal()){
+    if(ci.key==="lut2")t+=" Späte Lutealphase: mehr Wasser auf der Waage, Cardio fühlt sich oft zäher an. Die Kraft ist meist unverändert — die Beschwerden-Skala zählt, nicht der Kalender.";
+    else if(ci.key==="mens"&&(!c||!c.cyc||c.cyc<=2))t+=" Periode ohne große Beschwerden: ganz normal trainieren.";
+    else if(ci.key==="late"&&ci.day-avgLen()>=7)t+=" Deine Periode ist überfällig — schau in den Trends-Tab.";
+  }
+  return[r,t];
+}
+
+function e1rm(w,r,rpe){if(!w||!r)return 0;var t=r+(rpe?Math.max(0,10-rpe):2);if(t>14)return 0;return w*(1+t/30);}
+function ma(a,n){var o=[];for(var i=0;i<a.length;i++){var st=Math.max(0,i-n+1),s=0,c=0;
+  for(var j=st;j<=i;j++)if(a[j]!=null){s+=a[j];c++;}o.push(c?s/c:null);}return o;}
+function mean(a){if(!a.length)return null;var s=0;a.forEach(function(x){s+=x;});return s/a.length;}
+function nf(v,d){return v.toFixed(d==null?1:d).replace(".",",");}
+function sg(v,d){var p=Math.pow(10,d==null?1:d),z=Math.round(Math.abs(v)*p)===0;return(z?"±":v>0?"+":"−")+nf(Math.abs(v),d);}
+function median(a){var s=a.slice().sort(function(x,y){return x-y;});return s[Math.floor(s.length/2)];}
+function pearson(x,y){var n=x.length;if(n<3)return null;
+  var mx=mean(x),my=mean(y),sx=0,sy=0,sxy=0;
+  for(var i=0;i<n;i++){var a=x[i]-mx,b=y[i]-my;sxy+=a*b;sx+=a*a;sy+=b*b;}
+  if(sx===0||sy===0)return null;return sxy/Math.sqrt(sx*sy);}
+
+/* ══ Charts ══ */
+function chart(series,o){
+  o=o||{};var any=series.some(function(s){return s.pts.length>1;});
+  if(!any)return'<p class="empty">'+(o.emptyText||"Noch zu wenig Daten.")+'</p>';
+  var W=600,H=o.h||150,P=8,PB=16,all=[];
+  series.forEach(function(s){s.pts.forEach(function(p){all.push(p.v);});});
+  var mn=o.min!=null?o.min:Math.min.apply(null,all),mx=o.max!=null?o.max:Math.max.apply(null,all);
+  if(mx-mn<(o.pad||1)){var c=(mx+mn)/2,h=(o.pad||1)/2;mn=c-h;mx=c+h;}
+  var pd=(mx-mn)*.12;mn-=pd;mx+=pd;
+  var L=Math.max.apply(null,series.map(function(s){return s.pts.length;}));
+  function X(i){return P+i*(W-2*P)/Math.max(1,L-1);}
+  function Y(v){return PB+(1-(v-mn)/(mx-mn))*(H-2*PB);}
+  var out='<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;height:'+H+'px;display:block" preserveAspectRatio="none" role="img">';
+  (o.marks||[]).forEach(function(i){var x=X(i).toFixed(1);
+    out+='<line x1="'+x+'" y1="4" x2="'+x+'" y2="'+(H-4)+'" stroke="'+C_CYC+'" stroke-width="1.5" stroke-dasharray="3 4" opacity=".8" vector-effect="non-scaling-stroke"/>';});
+  if(o.goal!=null&&o.goal>mn&&o.goal<mx)
+    out+='<line x1="'+P+'" y1="'+Y(o.goal).toFixed(1)+'" x2="'+(W-P)+'" y2="'+Y(o.goal).toFixed(1)+'" stroke="'+C_INFO+'" stroke-width="1" stroke-dasharray="4 4" opacity=".7" vector-effect="non-scaling-stroke"/>';
+  series.forEach(function(s){
+    if(s.pts.length<2)return;
+    var d=s.pts.map(function(p,i){return(i?"L":"M")+X(i).toFixed(1)+" "+Y(p.v).toFixed(1);}).join(" ");
+    if(s.fill)out+='<path d="'+d+' L'+X(s.pts.length-1).toFixed(1)+' '+H+' L'+X(0).toFixed(1)+' '+H+' Z" fill="'+s.c+'" opacity=".1"/>';
+    out+='<path d="'+d+'" fill="none" stroke="'+s.c+'" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/>';
+  });
+  out+='</svg>';
+  var leg=series.filter(function(s){return s.name;}).map(function(s){
+    return'<span style="color:'+s.c+'">■ '+s.name+'</span>';}).join(" &nbsp; ");
+  out+='<div style="display:flex;justify-content:space-between;font-size:10.5px;color:var(--dim);margin-top:5px">'
+     +'<span>'+(o.l||"")+'</span><span>'+leg+'</span><span>'+(o.r||"")+'</span></div>';
+  return out;
+}
+function marksFor(keys){var out=[];if(!keys.length)return out;
+  starts().forEach(function(s){if(s<keys[0]||s>keys[keys.length-1])return;
+    for(var i=0;i<keys.length;i++)if(keys[i]>=s){out.push(i);break;}});
+  return out;}
+
+/* ══ UI-Helfer ══ */
+function $(id){return document.getElementById(id);}
+function mkScale(el,val,cb){el.innerHTML="";for(var i=1;i<=5;i++){(function(i){
+  var b=document.createElement("button");b.type="button";b.textContent=i;
+  b.setAttribute("aria-pressed",val===i?"true":"false");b.onclick=function(){cb(i);};el.appendChild(b);})(i);}}
+function flash(btn,t){if(btn._ft)clearTimeout(btn._ft);var o=btn._fo||btn.textContent;btn._fo=o;btn.textContent=t;btn.classList.add("saved");
+  btn._ft=setTimeout(function(){btn.textContent=o;btn._fo=null;btn.classList.remove("saved");},1500);}
+function stat(v,l,x){return'<div class="stat"><b>'+v+'</b><span>'+l+'</span>'+(x||"")+'</div>';}
+function setSeg(id,v){var el=$(id);el.dataset.v=v;el.querySelectorAll("button").forEach(function(b){
+  b.setAttribute("aria-pressed",b.dataset.v===v?"true":"false");});}
+document.querySelectorAll(".seg2").forEach(function(el){el.querySelectorAll("button").forEach(function(b){
+  b.onclick=function(){setSeg(el.id,b.dataset.v);};});});
+function num(v){if(v==null||v===""||isNaN(v))return"–";return String(Math.round(v*100)/100).replace(".",",");}
+
+/* ══ Heute ══ */
+var SCALES=["sleepQ","soreness","mood","motivation","focus","stress","cyc"];
+var draft={};
+function previewCI(){
+  if(realFlow(draft.flow)&&wouldStart(CUR.today))return{start:CUR.today,day:1,len:avgLen(),key:"mens",label:"Menstruation",preview:true};
+  return CUR.ci;}
+function renderHeute(){
+  draft=JSON.parse(JSON.stringify(S.checkins[CUR.today]||{}));
+  var lbl=fmtD(new Date());
+  if(CUR.pre)lbl+=" · Start morgen";else if(CUR.post)lbl+=" · nach dem Plan";
+  else lbl+=(CUR.week===0?" · Einstiegswoche":" · Woche "+CUR.week)+(CUR.deload?" · Deload":"")+(CUR.week===HOLW?" · Feiertage":"");
+  $("ciDate").textContent=lbl;
+  $("i-sleepH").value=draft.sleepH!=null?draft.sleepH:"";
+  $("i-weight").value=draft.weight!=null?draft.weight:"";
+  $("i-note").value=draft.note||"";
+  SCALES.forEach(function(k){mkScale($("s-"+k),draft[k],function(v){draft[k]=(draft[k]===v?null:v);syncScales();updateDial();});});
+  renderFlow();renderSyms();renderTags();renderCycLine();updateDial();
+  renderA2HS();renderSetup();renderMeasBanner();renderTodaySession();renderWeekBrief();
+}
+function renderA2HS(){
+  var box=$("a2hs"),ios=("standalone" in navigator)&&!navigator.standalone;
+  if(!ios||S.settings.a2hsOk){box.innerHTML="";return;}
+  box.innerHTML='<div class="card banner"><h3>Als App installieren</h3><p class="hint" style="margin-top:6px">In Safari auf Teilen tippen, dann „Zum Home-Bildschirm“. Danach startet alles wie eine echte App, auch offline. Wichtig: Die installierte App speichert getrennt von Safari — trag deshalb erst dort ein.</p>'
+    +'<button class="btn ghost sm" type="button" id="a2hsOk" style="margin-top:12px">Verstanden</button></div>';
+  $("a2hsOk").onclick=function(){S.settings.a2hsOk=true;markDirty("settings");renderA2HS();};
+}
+function refreshHeuteInfo(){renderCycLine();updateDial();renderSetup();renderMeasBanner();renderTodaySession();renderWeekBrief();}
+function syncScales(){SCALES.forEach(function(k){
+  var bs=$("s-"+k).querySelectorAll("button");
+  for(var i=0;i<bs.length;i++)bs[i].setAttribute("aria-pressed",draft[k]===i+1?"true":"false");});}
+function renderFlow(){var box=$("flowBox");box.innerHTML="";
+  FLOWS.forEach(function(f){var b=document.createElement("button");b.type="button";b.textContent=f[1];
+    b.setAttribute("aria-pressed",draft.flow===f[0]?"true":"false");
+    b.onclick=function(){draft.flow=(draft.flow===f[0]?null:f[0]);renderFlow();renderCycLine();updateDial();};
+    box.appendChild(b);});}
+function chipList(box,list,key){box.innerHTML="";var sel=draft[key]||[];
+  list.forEach(function(t){var b=document.createElement("button");b.type="button";b.textContent=t;
+    b.setAttribute("aria-pressed",sel.indexOf(t)>-1?"true":"false");
+    b.onclick=function(){var s=draft[key]||[];var i=s.indexOf(t);if(i>-1)s.splice(i,1);else s.push(t);
+      draft[key]=s;chipList(box,list,key);};
+    box.appendChild(b);});}
+function renderSyms(){chipList($("symBox"),SYMS,"sym");}
+function renderTags(){chipList($("tagBox"),TAGS,"tags");}
+function renderCycLine(){
+  var ci=previewCI(),t;
+  if(!ci)t=starts().length?"—":"Noch kein Periodenbeginn erfasst. Trag beim nächsten Mal einfach die Blutung ein — der erste Tag wird automatisch Zyklustag 1.";
+  else if(hormonal())t="<b>Tag "+ci.day+"</b> seit der letzten Blutung · hormonelle Verhütung, es zählen nur die Beschwerden.";
+  else{t="<b>Zyklustag "+ci.day+"</b> · "+ci.label;
+    if(ci.preview)t+=" — wird beim Speichern als neuer Zyklus gesetzt";
+    else if(ci.key==="late"){var over=ci.day-avgLen();t+=" · "+over+(over===1?" Tag":" Tage")+" über deinem Schnitt";}
+    else{var left=avgLen()-ci.day+1;if(left>0)t+=" · nächste Periode in ca. "+left+(left===1?" Tag":" Tagen");}}
+  $("cyLine").innerHTML=t+' · <button class="linkbtn" type="button" id="cyLink">Einstellungen</button>';
+  $("cyLink").onclick=function(){go("trends");setTimeout(function(){var c=$("cycCard");if(c)c.scrollIntoView({block:"start"});},40);};
+}
+function updateDial(){
+  var ci=previewCI(),b=bodyScore(draft),m=mindScore(draft),pen=cyclePen(draft,ci),a=advice(b,m,pen,ci,draft),r=a[0],arc=$("dialArc"),C=226;
+  $("ssBody").textContent=b!=null?b:"—";$("ssMind").textContent=m!=null?m:"—";
+  $("ssCyc").textContent=fmtPts(pen.total);
+  $("ssCycL").textContent=ci?"Zyklus · Tag "+ci.day:"Zyklus";
+  if(r==="—"||r==null){$("dialNum").textContent="—";$("dialNum").style.color="";arc.style.strokeDashoffset=C;arc.style.stroke=C_ACC;
+    $("dialTxt").textContent="Füll das Logbuch aus, dann steht hier deine Empfehlung für heute.";return;}
+  $("dialNum").textContent=r;arc.style.strokeDashoffset=C-C*r/100;
+  var col=r>=75?C_OK:r>=55?C_ACC:C_WARN;
+  arc.style.stroke=col;$("dialNum").style.color=col;$("dialTxt").textContent=a[1];
+}
+function renderSetup(){
+  var show=!S.settings.setup&&!S.settings.skip;
+  $("setupCard").style.display=show?"":"none";if(!show)return;
+  setSeg("suContra",S.settings.contra||"natural");
+  $("suLen").value=S.settings.cycleLen||"";$("suPer").value=S.settings.periodLen||"";$("suStart").max=CUR.today;
+}
+$("suSave").onclick=function(){
+  var len=parseInt($("suLen").value,10),per=parseInt($("suPer").value,10),st=$("suStart").value;
+  if(st&&st>CUR.today){flash(this,"Datum liegt in der Zukunft");return;}
+  saveCycleSettings($("suContra").dataset.v||"natural",len,per);
+  if(st)addStart(st);
+  renderAll();
+};
+$("suLater").onclick=function(){S.settings.skip=true;markDirty("settings");renderSetup();};
+
+function lastMeasure(){var ks=S.tests.filter(function(t){return t.k==="kfa"||t.k==="waistN"||t.k==="waistS";})
+  .map(function(t){return t.d;}).sort();return ks.length?ks[ks.length-1]:null;}
+function measureState(){
+  var last=lastMeasure(),ci=CUR.ci,r={open:false,due:false,last:last,text:"",short:""};
+  if(ci&&!hormonal()&&ci.key==="late"&&ci.day-ci.len<=7){
+    r.due=!last||last<ci.start;
+    r.text="Die nächste Periode steht an — das Messfenster öffnet an ihrem fünften Tag.";
+  }else if(ci&&!hormonal()&&ci.key!=="late"){
+    r.open=ci.day>=5&&ci.day<=10;r.due=!last||last<ci.start;
+    if(r.open)r.text="Messfenster offen — Zyklustag "+ci.day+"."+(r.due?" In diesem Zyklus fehlt die Messung noch: bis Tag 10 messen.":" In diesem Zyklus hast du schon gemessen.");
+    else{var nx=ci.day<5?addDays(pISO(ci.start),4):addDays(pISO(ci.start),avgLen()+4);
+      r.text="Nächstes Messfenster ab "+fmtD(nx)+", Zyklustag 5 bis 10."+(r.due&&last?" In diesem Zyklus wurde nicht gemessen — kein Problem, dann im nächsten Fenster.":"");}
+    r.short="Zyklustag "+ci.day+": Der Wasserhaushalt ist jetzt am stabilsten. Morgens nüchtern messen — Körperfett, Taille, Po, Fotos.";
+  }else{
+    var gap=last?days(pISO(last),pISO(CUR.today)):999;r.due=gap>=26;r.open=r.due;
+    r.text=(hormonal()?"Hormonelle Verhütung: alle vier Wochen am gleichen Wochentag messen, nicht in der Einnahmepause.":
+      ci&&ci.key==="late"?"Solange die Periode deutlich überfällig ist, gibt es kein Messfenster — miss vier Wochen nach der letzten Messung.":
+      "Ohne erfassten Zyklus: alle vier Wochen am gleichen Wochentag messen.")+(last?" Letzte Messung vor "+gap+" Tagen.":"");
+    r.short="Alle vier Wochen am gleichen Wochentag, morgens nüchtern — Körperfett, Taille, Po, Fotos.";
+  }
+  if(!last){r.due=true;
+    r.short=CUR.pre?"Morgen früh vor dem ersten Training: Gewicht, Körperfett, Taille, Po, Oberschenkel, Oberarm und Fotos. Später misst du immer an Zyklustag 5 bis 10.":
+      "Noch keine Startmessung: Gewicht, Körperfett, Taille, Po, Oberschenkel, Oberarm, Fotos. Ideal im Messfenster an Zyklustag 5 bis 10 — ist das noch über eine Woche hin, miss jetzt und im Fenster ein zweites Mal.";}
+  return r;
+}
+function renderMeasBanner(){
+  var box=$("measBanner");if(CUR.post){box.innerHTML="";return;}
+  var ms=measureState();
+  if(!ms.last||(ms.due&&ms.open)){
+    box.innerHTML='<div class="card banner"><h3>'+(ms.last?"Messfenster offen":"Startmessung")+'</h3><p class="hint" style="margin-top:6px">'+ms.short
+      +'</p><button class="btn ghost sm" type="button" id="goMeasure" style="margin-top:12px">Zu den Messungen</button></div>';
+    $("goMeasure").onclick=openTests;
+  }else box.innerHTML="";
+}
+function lowerDay(bid,di){return bid!==2&&(di===0||di===2);}
+function nextSlot(w){for(var i=0;i<4;i++)if(!sessionKey(w,i))return i;return-1;}
+function suggestSlot(){var w=CUR.week,n=nextSlot(w);if(n<0)return{i:-1};
+  var ty=S.training[iso(addDays(pISO(CUR.today),-1))];
+  if(ty&&ty.done&&lowerDay(ty.block,ty.day)&&lowerDay(CUR.block.id,n)){
+    for(var i=0;i<4;i++)if(!sessionKey(w,i)&&!lowerDay(CUR.block.id,i))return{i:i,swap:true};}
+  return{i:n};}
+function trainedStreak(){var n=0,d=addDays(pISO(CUR.today),-1);
+  while(S.training[iso(d)]&&S.training[iso(d)].done){n++;d=addDays(d,-1);}return n;}
+function renderTodaySession(){
+  var el=$("sessName"),btn=$("goTraining");CUR.sug=null;
+  if(CUR.pre){el.textContent="Start ist morgen, Donnerstag, 29.10. — Tag 1 · Squat & Glutes.";btn.style.display="none";return;}
+  btn.style.display="";
+  if(CUR.post){el.textContent="Die zwölf Wochen sind durch. Abschlussmessung im nächsten Messfenster — dann geht es in die Aufbauphase.";return;}
+  var td=S.training[CUR.today];
+  if(td&&td.done){var s0=(SESSIONS[td.block]||[])[td.day];el.textContent="Heute erledigt: Tag "+(td.day+1)+(s0?" · "+s0.t:"")+". Jetzt essen und schlafen.";return;}
+  var sg0=suggestSlot();CUR.sug=sg0;
+  if(sg0.i<0){el.textContent="Alle Einheiten dieser Woche sind erledigt. Spaziergang, Mobility, gut essen.";return;}
+  var s=SESSIONS[CUR.block.id][sg0.i],txt="Tag "+(sg0.i+1)+" · "+s.t+(CUR.deload?" · Deload":"");
+  if(trainedStreak()>=2)el.textContent="Zwei Tage am Stück trainiert — heute lieber Pause. Als Nächstes: "+txt+".";
+  else if(sg0.swap)el.textContent="Als Nächstes: "+txt+" — vorgezogen, weil gestern schon ein schwerer Unterkörpertag war.";
+  else el.textContent="Als Nächstes: "+txt+".";
+}
+function renderWeekBrief(){
+  if(CUR.pre){$("weekBrief").textContent="Ab morgen läuft der Plan. Wieg dich morgen früh zum ersten Mal — dann steht der Gewichtstrend ab Tag eins.";
+    $("weekStats").innerHTML="";return;}
+  var lbl=CUR.week===0?"Einstiegswoche":CUR.block.short;
+  if(CUR.deload)lbl+=" · Deload-Woche";if(CUR.week===TESTW)lbl+=" · Abschlusswoche";
+  $("weekBrief").textContent=lbl+" · Hauptübungen RPE "+RPEW[CUR.week];
+  var mon=weekStart(CUR.week),se=0,ci=0,rs=[];
+  for(var i=0;i<7;i++){var k=iso(addDays(mon,i));
+    if(S.training[k]&&S.training[k].done)se++;
+    if(S.checkins[k]){ci++;var r=R(k);if(r!=null)rs.push(r);}}
+  var tg=targets(CUR.phase),slots=(CUR.week===0||CUR.week===HOLW)?3:4,dd=CUR.week===0?4:7;
+  $("weekStats").innerHTML=stat(se+" / "+slots,"Einheiten")+stat(ci+" / "+dd,"Logbuch")
+    +stat(rs.length?Math.round(mean(rs)):"—","Ø Readiness")+stat(fmtK(tg.kcal),"kcal-Ziel");
+}
+$("saveCheckin").onclick=function(){
+  var sh=parseFloat(String($("i-sleepH").value).replace(",",".")),
+      wt=parseFloat(String($("i-weight").value).replace(",","."));
+  if(!isNaN(sh))draft.sleepH=sh;else delete draft.sleepH;
+  if(!isNaN(wt))draft.weight=wt;else delete draft.weight;
+  var nt=$("i-note").value.trim();if(nt)draft.note=nt;else delete draft.note;
+  SCALES.forEach(function(k){if(!draft[k])delete draft[k];});
+  if(!draft.flow)delete draft.flow;
+  ["tags","sym"].forEach(function(k){if(draft[k]&&!draft[k].length)delete draft[k];});
+  S.checkins[CUR.today]=JSON.parse(JSON.stringify(draft));markDirty("checkins");
+  var ch=updateCycleStart(CUR.today);computeCur();
+  flash(this,ch==="new"?"Gespeichert · Zyklustag 1":"Gespeichert");
+  renderCycLine();updateDial();renderMeasBanner();renderWeekBrief();
+};
+$("goTraining").onclick=function(){
+  viewWeek=CUR.week;openDate=null;if(CUR.sug&&CUR.sug.i>=0)selDay=CUR.sug.i;
+  go("training");setTrMode("session");};
+
+/* ══ Training ══ */
+var viewWeek=null,selDay=0,selEx="Back Squat",trMode="session",editDate=null,openDate=null;
+var DAYOFF=[0,1,3,4];
+document.querySelectorAll("#trSeg button").forEach(function(b){b.onclick=function(){setTrMode(b.dataset.m);};});
+function setTrMode(m){trMode=m;
+  document.querySelectorAll("#trSeg button").forEach(function(x){x.setAttribute("aria-pressed",x.dataset.m===m?"true":"false");});
+  $("m-session").style.display=m==="session"?"":"none";
+  $("m-history").style.display=m==="history"?"":"none";
+  $("m-tests").style.display=m==="tests"?"":"none";
+  if(m==="tests")renderTests();if(m==="history")renderHistory();if(m==="session")renderTraining();}
+function openTests(){go("training");setTrMode("tests");window.scrollTo(0,0);}
+function slotDate(w,di){var d=addDays(weekStart(w),DAYOFF[di]);if(d<START)d=new Date(START);return iso(d);}
+function defaultDate(w,di){return(w===CUR.week&&!CUR.pre&&!CUR.post)?CUR.today:slotDate(w,di);}
+function sessionKeys(w,di){return Object.keys(S.training).filter(function(k){var t=S.training[k];
+  return t&&t.done&&t.week===w&&t.day===di;}).sort();}
+function sessionKey(w,di){var ks=sessionKeys(w,di);return ks.length?ks[ks.length-1]:null;}
+function weekDone(w){var n=0;for(var i=0;i<4;i++)if(sessionKey(w,i))n++;return n;}
+function lastPerf(name,before){
+  var ks=Object.keys(S.training).filter(function(k){
+    return k<before&&S.training[k].sets&&S.training[k].sets[name];}).sort();
+  for(var i=ks.length-1;i>=0;i--){
+    var st=S.training[ks[i]].sets[name].filter(function(x){return x&&(x.w!=null||x.r!=null);});
+    if(st.length)return{d:ks[i],sets:st};}
+  return null;}
+function perfTxt(sets){
+  var w0=sets[0].w,sameW=sets.every(function(x){return x.w===w0;});
+  var rp=sets.map(function(x){return x.rpe;}).filter(function(x){return x!=null;});
+  var rpTxt="";
+  if(rp.length){var lo=Math.min.apply(null,rp),hi=Math.max.apply(null,rp);
+    rpTxt=" @ RPE "+num(lo)+(hi>lo?"–"+num(hi):"");}
+  if(sameW){
+    var pre=(w0==null||w0===0)?"":num(w0)+" kg × ";
+    var r0=sets[0].r,sameR=sets.every(function(x){return x.r===r0;});
+    var body=sameR?sets.length+" × "+pre+(r0!=null?r0:"–"):pre+sets.map(function(x){return x.r!=null?x.r:"–";}).join("/");
+    return body+(pre?"":" Wdh.")+rpTxt;}
+  return sets.map(function(x){
+    return(x.w!=null?num(x.w)+"×":"")+(x.r!=null?x.r:"–")+(x.rpe?"@"+num(x.rpe):"");}).join(" · ");}
+function plannedSets(e,w){return isDeload(w)?Math.max(1,Math.round(e.s*0.6)):e.s;}
+function exSpec(e,w){var t=plannedSets(e,w)+" × "+e.r;
+  if(e.m)t+=" · RPE "+RPEW[w]+(w===TESTW?" · letzter Satz AMRAP":"");
+  if(e.t)t+=" · "+e.t;return t;}
+function openWeek(w){viewWeek=w;openDate=null;go("training");setTrMode("session");renderHeader();window.scrollTo(0,0);}
+$("wPrev").onclick=function(){if(viewWeek>0){viewWeek--;openDate=null;renderTraining();renderHeader();}};
+$("wNext").onclick=function(){if(viewWeek<LASTW){viewWeek++;openDate=null;renderTraining();renderHeader();}};
+$("wToday").onclick=function(){viewWeek=CUR.week;openDate=null;
+  var sg1=suggestSlot();selDay=sg1.i>=0?sg1.i:0;renderTraining();renderHeader();window.scrollTo(0,0);};
+
+function renderTraining(){
+  if(viewWeek==null)viewWeek=CUR.week;
+  var w=viewWeek,blk=blockOf(w),dl=isDeload(w),ws=weekStart(w),we=addDays(ws,6);
+  var lbl=w===0?"Einstiegswoche":"Woche "+w+" von "+LASTW;
+  if(dl)lbl+='<span class="badge dl">Deload</span>';
+  if(w===HOLW)lbl+='<span class="badge dl">Feiertage</span>';
+  if(w===TESTW)lbl+='<span class="badge ts">Abschluss</span>';
+  var dn=weekDone(w);if(dn)lbl+='<span class="badge ok">'+dn+"/"+((w===0||w===HOLW)?3:4)+"</span>";
+  $("wLabel").innerHTML=lbl;
+  var isCur=w===CUR.week&&!CUR.pre&&!CUR.post;
+  $("wDates").textContent=fmtDM(w===0?START:ws)+" – "+fmtDMY(we)+(isCur?" · diese Woche":(CUR.post||w<CUR.week)?" · vergangen":" · geplant");
+  $("wPrev").disabled=w<=0;$("wNext").disabled=w>=LASTW;
+  $("wToday").style.display=(w===CUR.week)?"none":"block";
+  $("trBlock").textContent=w===0?"Einstieg · Block 1 mit RPE 7":blk.name;
+  $("trFocus").textContent=(w===0?"Startlasten finden, Technik einschleifen, App einrichten. Zwei bis drei Einheiten bis Sonntag reichen.":blk.focus)
+    +" Hauptübungen diese Woche: RPE "+RPEW[w]+(w===TESTW?", letzter Satz als AMRAP mit Abbruch bei RPE 9.":".")
+    +(dl?" Deload: weniger Sätze, gleiche Last.":"");
+  var p=$("dayPills");p.innerHTML="";
+  SESSIONS[blk.id].forEach(function(sx,i){
+    var b=document.createElement("button");b.type="button";
+    b.textContent="Tag "+(i+1)+(sessionKey(w,i)?" ✓":"");
+    b.setAttribute("aria-pressed",i===selDay?"true":"false");
+    b.onclick=function(){selDay=i;openDate=null;renderTraining();};p.appendChild(b);});
+  var s=SESSIONS[blk.id][selDay],keys=sessionKeys(w,selDay);
+  var key=(openDate&&keys.indexOf(openDate)>-1)?openDate:(keys.length?keys[keys.length-1]:null);
+  openDate=key;
+  var dnv=$("dupNav");dnv.innerHTML="";
+  if(keys.length>1){
+    dnv.style.display="flex";
+    var lab=document.createElement("span");lab.textContent=keys.length+" Einheiten in diesem Slot:";dnv.appendChild(lab);
+    keys.forEach(function(kk){var b=document.createElement("button");b.type="button";b.textContent=shortD(kk);
+      b.setAttribute("aria-pressed",kk===key?"true":"false");
+      b.onclick=function(){openDate=kk;renderTraining();};dnv.appendChild(b);});
+  }else dnv.style.display="none";
+  editDate=key||defaultDate(w,selDay);
+  $("sessDate").value=editDate;
+  $("sessTitle").textContent="Tag "+(selDay+1)+" · "+s.t;
+  $("sessTag").textContent=(s.g?s.g+" · ":"")+fmtD(pISO(editDate))+(key?" · gespeichert":"");
+  $("saveSession").textContent=key?"Änderungen speichern":"Einheit speichern";
+  $("delSession").style.display=key?"block":"none";
+  renderExercises(s,w,key);renderE1();
+}
+function renderExercises(s,w,key){
+  var log=(key&&S.training[key]&&S.training[key].sets)||{},host=$("exList");host.innerHTML="";
+  s.e.forEach(function(e){
+    var planned=plannedSets(e,w),saved=log[e.n]||[],nS=Math.max(planned,saved.length);
+    var h=document.createElement("div");h.className="exhead";h.innerHTML="<b></b><span></span>";
+    h.querySelector("b").textContent=e.n;h.querySelector("span").textContent=exSpec(e,w);
+    host.appendChild(h);
+    var lp=lastPerf(e.n,editDate),ll=document.createElement("div");ll.className="lastline";
+    if(lp){
+      var t=document.createElement("span");t.textContent="Zuletzt am "+shortD(lp.d)+": "+perfTxt(lp.sets);
+      var cp=document.createElement("button");cp.type="button";cp.textContent="Übernehmen";
+      ll.appendChild(t);ll.appendChild(cp);
+      cp.onclick=function(){
+        var all=host.querySelectorAll(".setrow"),rows=[];
+        for(var q=0;q<all.length;q++)if(all[q].dataset.ex===e.n)rows.push(all[q]);
+        for(var i=0;i<rows.length;i++){
+          var src=lp.sets[Math.min(i,lp.sets.length-1)],ins=rows[i].querySelectorAll("input");
+          ins[0].value=src.w!=null?src.w:"";ins[1].value=src.r!=null?src.r:"";ins[2].value=src.rpe!=null?src.rpe:"";
+          for(var z=0;z<3;z++)ins[z].dispatchEvent(new Event("input"));}
+        cp.textContent="Eingetragen";setTimeout(function(){cp.textContent="Übernehmen";},1200);};
+    }else{
+      var n0=document.createElement("span");n0.className="none";
+      n0.textContent=START_HINT[e.n]?"Erster Eintrag · "+START_HINT[e.n]+".":"Erster Eintrag. Last so wählen, dass 2–3 Wdh. Reserve bleiben.";
+      ll.appendChild(n0);}
+    host.appendChild(ll);
+    var hd=document.createElement("div");hd.className="colhdr";
+    hd.innerHTML="<span></span><span>kg</span><span>Wdh.</span><span>RPE</span><span></span>";host.appendChild(hd);
+    for(var si=0;si<nS;si++){(function(si){
+      var prev=saved[si]||{},row=document.createElement("div");row.className="setrow";
+      row.innerHTML='<span class="idx">'+(si+1)+'</span>'
+        +'<input type="number" inputmode="decimal" step="0.5" aria-label="Gewicht in kg">'
+        +'<input type="number" inputmode="numeric" aria-label="Wiederholungen">'
+        +'<input type="number" inputmode="decimal" step="0.5" min="5" max="10" aria-label="RPE">'
+        +'<span class="e1"></span>';
+      var ins=row.querySelectorAll("input"),out=row.querySelector(".e1");
+      if(prev.w!=null)ins[0].value=prev.w;if(prev.r!=null)ins[1].value=prev.r;if(prev.rpe!=null)ins[2].value=prev.rpe;
+      function upd(){var wv=parseFloat(String(ins[0].value).replace(",",".")),
+        rv=parseInt(ins[1].value,10),pv=parseFloat(String(ins[2].value).replace(",","."));
+        var v=e1rm(wv,rv,pv);out.textContent=v>0?(v<40?nf(v):Math.round(v)):"";
+        row.dataset.w=isNaN(wv)?"":wv;row.dataset.r=isNaN(rv)?"":rv;row.dataset.rpe=isNaN(pv)?"":pv;}
+      for(var i=0;i<3;i++)ins[i].addEventListener("input",upd);
+      upd();row.dataset.ex=e.n;row.dataset.si=si;host.appendChild(row);})(si);}
+  });
+}
+$("sessDate").onchange=function(){
+  var nd=this.value;if(!nd){this.value=editDate;return;}
+  var old=editDate;if(nd===old)return;
+  if(S.training[old]&&S.training[old].done){
+    if(S.training[nd]&&S.training[nd].done&&!confirm("Am "+shortD(nd)+" ist bereits eine Einheit gespeichert. Überschreiben?")){this.value=old;return;}
+    S.training[nd]=S.training[old];delete S.training[old];markDirty("training");
+    refreshHeuteInfo();}
+  editDate=nd;openDate=nd;renderTraining();
+};
+$("saveSession").onclick=function(){
+  var rows=$("exList").querySelectorAll(".setrow"),sets={},n=0;
+  for(var i=0;i<rows.length;i++){var r=rows[i];
+    if(!r.dataset.w&&!r.dataset.r)continue;
+    var k=r.dataset.ex;if(!sets[k])sets[k]=[];
+    sets[k][+r.dataset.si]={w:r.dataset.w?+r.dataset.w:null,r:r.dataset.r?+r.dataset.r:null,rpe:r.dataset.rpe?+r.dataset.rpe:null};n++;}
+  if(!n){flash(this,"Noch nichts eingetragen");return;}
+  Object.keys(sets).forEach(function(k){for(var j=0;j<sets[k].length;j++)if(!sets[k][j])sets[k][j]=null;});
+  var d=editDate||CUR.today;
+  S.training[d]={day:selDay,block:blockOf(viewWeek).id,week:viewWeek,sets:sets,done:true};
+  openDate=d;markDirty("training");computeCur();flash(this,"Gespeichert");
+  refreshHeuteInfo();renderHeader();setTimeout(renderTraining,1550);
+};
+$("delSession").onclick=function(){
+  if(!editDate||!S.training[editDate])return;
+  if(!confirm("Einheit vom "+shortD(editDate)+" löschen? Das lässt sich nicht rückgängig machen."))return;
+  delete S.training[editDate];openDate=null;markDirty("training");computeCur();
+  renderTraining();refreshHeuteInfo();renderHeader();
+};
+
+/* ══ Verlauf ══ */
+function renderHistory(){
+  var ks=Object.keys(S.training).filter(function(k){return S.training[k].done;}).sort().reverse();
+  var host=$("histList");host.innerHTML="";
+  if(!ks.length){host.innerHTML='<p class="empty">Noch keine Einheit gespeichert. Sobald du eine Einheit sicherst, steht sie hier.</p>';
+    $("hStats").innerHTML="";return;}
+  var nSets=0,vol=0;
+  ks.forEach(function(k){var st=S.training[k].sets||{};
+    Object.keys(st).forEach(function(nm){st[nm].forEach(function(x){if(x&&x.w&&x.r){nSets++;vol+=x.w*x.r;}});});});
+  $("hStats").innerHTML=stat(ks.length,"Einheiten")+stat(nSets,"Sätze mit Last")
+    +stat(nf(vol/1000)+" t","Gesamtvolumen")+stat(shortD(ks[0]),"Zuletzt");
+  ks.forEach(function(k){
+    var t=S.training[k],sess=(SESSIONS[t.block]||[])[t.day||0];
+    var st=t.sets||{},exN=Object.keys(st).length,sc=0,top=null;
+    Object.keys(st).forEach(function(nm){st[nm].forEach(function(x){
+      if(x&&x.w){sc++;if(!top||x.w>top.w)top={w:x.w,n:nm};}});});
+    var b=document.createElement("button");b.type="button";b.className="histrow";
+    var l=document.createElement("div"),bt=document.createElement("b");
+    bt.textContent=pISO(k).toLocaleDateString("de-DE",{weekday:"short",day:"2-digit",month:"2-digit",year:"2-digit"});
+    var sp=document.createElement("span");
+    sp.textContent=(t.week===0?"Einstieg":"Woche "+t.week)+" · "+(sess?sess.t:"Einheit")+(top?" · "+top.n+" "+num(top.w)+" kg":"");
+    l.appendChild(bt);l.appendChild(sp);
+    var rt=document.createElement("div");rt.className="rt";rt.style.whiteSpace="pre-line";
+    rt.textContent=exN+(exN===1?" Übung":" Übungen")+"\n"+sc+(sc===1?" Satz":" Sätze");
+    b.appendChild(l);b.appendChild(rt);
+    b.onclick=function(){viewWeek=t.week;selDay=t.day||0;openDate=k;setTrMode("session");renderHeader();window.scrollTo(0,0);};
+    host.appendChild(b);});
+}
+
+/* ══ Kraftverlauf ══ */
+function allEx(){var s={};Object.keys(S.training).forEach(function(d){
+    var x=S.training[d].sets||{};Object.keys(x).forEach(function(k){s[k]=1;});});
+  var pri=KEYEX.filter(function(p){return p!=="Klimmzug";});
+  var out=pri.filter(function(p){return s[p];});
+  Object.keys(s).forEach(function(k){if(out.indexOf(k)<0&&bestE1Any(k))out.push(k);});
+  return out.length?out:pri;}
+function bestE1(date,name){var st=(S.training[date]&&S.training[date].sets||{})[name];if(!st)return 0;
+  var b=0;st.forEach(function(x){if(x){var v=e1rm(x.w,x.r,x.rpe);if(v>b)b=v;}});return b;}
+function bestE1Any(name){return Object.keys(S.training).some(function(d){return bestE1(d,name)>0;});}
+function renderE1(){
+  var list=allEx(),p=$("e1Pills");p.innerHTML="";
+  if(list.indexOf(selEx)<0)selEx=list[0];
+  list.slice(0,8).forEach(function(n){var b=document.createElement("button");b.type="button";b.textContent=n;
+    b.setAttribute("aria-pressed",n===selEx?"true":"false");b.onclick=function(){selEx=n;renderE1();};p.appendChild(b);});
+  var pts=[];Object.keys(S.training).sort().forEach(function(d){
+    var v=bestE1(d,selEx);if(v>0)pts.push({d:shortD(d),v:v<40?Math.round(v*10)/10:Math.round(v)});});
+  $("e1Chart").innerHTML=chart([{pts:pts,c:C_ACC,fill:true}],{pad:4,
+    l:pts.length?pts[0].d:"",r:pts.length?pts[pts.length-1].d:"",
+    emptyText:"Ab dem zweiten Eintrag für "+selEx+" erscheint hier deine Kurve."});
+  if(pts.length){var f=pts[0].v,l=pts[pts.length-1].v,d=l-f;
+    $("e1Stats").innerHTML=stat(num(l)+" kg","Aktuell geschätzt")
+      +stat(sg(d,l<40?1:0)+" kg","Seit Beginn",'<small class="'+(d>0?"pos":d<0?"neg":"neu")+'">'+pts.length+" Einheiten</small>");
+  }else $("e1Stats").innerHTML="";
+}
+
+/* ══ Messungen ══ */
+function mVals(k){return S.tests.filter(function(x){return x.k===k;}).sort(function(a,b){
+  return a.d<b.d?-1:a.d>b.d?1:(a.t||0)-(b.t||0);});}
+function updUnit(){var d=MDEFS.filter(function(x){return x.k===$("tSelect").value;})[0]||MDEFS[0];
+  $("tUnit").textContent="Wert in "+d.u;}
+function renderTests(){
+  var sel=$("tSelect");
+  if(!sel.options.length){MDEFS.forEach(function(t){var o=document.createElement("option");o.value=t.k;o.textContent=t.n;sel.appendChild(o);});
+    sel.onchange=updUnit;}
+  updUnit();$("tDate").textContent=fmtD(new Date());$("mwText").textContent=measureState().text;
+  var rows=MDEFS.map(function(t){
+    var v=mVals(t.k),first=v.length?v[0].v:null,last=v.length?v[v.length-1].v:null,goal,hit=false,good=false,bad=false;
+    if(t.goal!=null){goal=(t.lower?"≤ ":"≥ ")+num(t.goal);
+      if(v.length>1){hit=t.lower?last<=t.goal:last>=t.goal;good=t.lower?last<first:last>first;bad=t.lower?last>first+0.3:last<first-0.3;}}
+    else if(t.rel!=null){goal=first!=null?"≤ "+num(Math.round((first+t.rel)*10)/10):(t.rel+" "+t.u);
+      if(v.length>1){hit=last<=first+t.rel;good=last<first;bad=last>first+0.3;}}
+    else{goal="halten";if(v.length>1){hit=last>=first-0.5;bad=last<first-0.5;}}
+    var cls=v.length<2?"neu":hit?"pos":good?"amb":bad?"neg":"neu";
+    return'<tr><td>'+t.n+'<small>'+t.u+'</small></td><td class="neu">'+(first!=null?num(first):"—")+'</td><td class="'+cls+'"><b>'
+      +(v.length>1?num(last):"—")+'</b></td><td class="neu">'+goal+'</td></tr>';});
+  $("tTable").innerHTML='<table class="t"><thead><tr><th>Messung</th><th>Start</th><th>Jetzt</th><th>Ziel</th></tr></thead><tbody>'+rows.join("")+'</tbody></table>';
+  renderKraft();renderMList();
+}
+function renderKraft(){
+  var rows=KEYEX.map(function(n){
+    var ds=Object.keys(S.training).sort().filter(function(d){var st=S.training[d].sets;return st&&st[n];}),vals;
+    if(n==="Klimmzug")vals=ds.map(function(d){return Math.max.apply(null,S.training[d].sets[n].map(function(x){return x&&x.r?x.r:0;}).concat([0]));}).filter(function(x){return x>0;});
+    else vals=ds.map(function(d){return bestE1(d,n);}).filter(function(x){return x>0;});
+    if(!vals.length)return'<tr><td>'+n+'</td><td class="neu">—</td><td class="neu">—</td><td></td></tr>';
+    var a=vals[0],b=Math.max.apply(null,vals.slice(-3)),u=n==="Klimmzug"?" Wdh.":" kg",d=(b-a)/a*100;
+    function f(v){return n==="Klimmzug"?String(v):v<40?nf(v):String(Math.round(v));}
+    return'<tr><td>'+n+'</td><td class="neu">'+f(a)+u+'</td><td><b>'+f(b)+u+'</b></td><td class="'
+      +(vals.length<2?"neu":d>=5?"pos":d>=0?"amb":"neg")+'">'+(vals.length<2?"Start":sg(d,0)+" %")+'</td></tr>';});
+  $("kTable").innerHTML='<table class="t"><thead><tr><th>Übung</th><th>Start</th><th>Jetzt</th><th>Δ</th></tr></thead><tbody>'+rows.join("")+'</tbody></table>'
+    +'<p class="hint" style="margin-top:10px">Ziel: mindestens halten, besser +5 %. Klimmzüge zählen in Wiederholungen.</p>';
+}
+function renderMList(){var host=$("tList");host.innerHTML="";
+  var all=S.tests.slice().sort(function(a,b){return a.d<b.d?1:a.d>b.d?-1:(b.t||0)-(a.t||0);}).slice(0,8);
+  if(!all.length){host.innerHTML='<p class="empty">Noch keine Messung.</p>';return;}
+  all.forEach(function(x){var def=MDEFS.filter(function(m){return m.k===x.k;})[0]||{n:x.k,u:""};
+    var row=document.createElement("div"),l=document.createElement("span");
+    l.textContent=shortD(x.d)+" · "+def.n+": "+num(x.v)+" "+def.u;l.style.color="var(--ink)";
+    var b=document.createElement("button");b.type="button";b.textContent="×";b.setAttribute("aria-label","Eintrag löschen");
+    b.onclick=function(){if(!confirm("Eintrag löschen?"))return;var idx=S.tests.indexOf(x);if(idx>-1)S.tests.splice(idx,1);
+      markDirty("tests");renderTests();renderMeasBanner();};
+    row.appendChild(l);row.appendChild(b);host.appendChild(row);});}
+$("saveTest").onclick=function(){
+  var v=parseFloat(String($("tValue").value).replace(",","."));
+  if(isNaN(v)){flash(this,"Bitte Wert eintragen");return;}
+  S.tests.push({d:CUR.today,k:$("tSelect").value,v:v,w:CUR.week,t:Date.now()});
+  markDirty("tests");$("tValue").value="";flash(this,"Gespeichert");renderTests();renderMeasBanner();
+};
+
+/* ══ Essen ══ */
+function wSeries(){return Object.keys(S.checkins).filter(function(k){return S.checkins[k].weight;}).sort()
+  .map(function(k){return{d:k,v:S.checkins[k].weight};});}
+function wMap(){var m={};Object.keys(S.checkins).forEach(function(k){var w=S.checkins[k].weight;if(w)m[k]=w;});return m;}
+function avg7(map,end){var a=[];for(var i=0;i<7;i++){var k=iso(addDays(pISO(end),-i));if(map[k]!=null)a.push(map[k]);}
+  return a.length>=4?mean(a):null;}
+function trendCmp(){
+  var map=wMap(),cur=avg7(map,CUR.today);if(cur==null)return null;
+  var ci=CUR.ci,ref=null,method="28";
+  if(ci&&!hormonal()){var st=starts(),i=st.indexOf(ci.start);
+    if(i>0){var rd=iso(addDays(pISO(st[i-1]),ci.day-1));if(rd<ci.start){ref=rd;method="cycle";}}}
+  if(!ref)ref=iso(addDays(pISO(CUR.today),-28));
+  var rv=avg7(map,ref);
+  if(rv==null)return{cur:cur,ref:null,refDate:ref,method:method};
+  return{cur:cur,ref:rv,refDate:ref,diff:cur-rv,days:days(pISO(ref),pISO(CUR.today)),method:method};
+}
+function lateLuteal(){return!!(CUR.ci&&!hormonal()&&CUR.ci.key==="lut2");}
+function renderEssen(){
+  var p=CUR.phase,tg=targets(p),off=S.settings.kcalOffset||0;
+  $("nPhase").textContent=(CUR.pre?"Ab morgen: ":"Phase: ")+p.n;$("nPhaseSub").textContent=p.note;
+  $("nTargets").innerHTML=stat(fmtK(tg.kcal),"Kalorien",off?'<small class="amb">'+(off>0?"+":"−")+Math.abs(off)+" angepasst</small>":"")
+    +stat(tg.p+" g","Protein")+stat(tg.cT+" / "+tg.cR+" g","KH Training / Ruhe")+stat(tg.fT+" / "+tg.fR+" g","Fett Training / Ruhe");
+  $("nSplit").innerHTML=(lateLuteal()?'<b class="cyc">Späte Lutealphase:</b> bis zu 150 kcal mehr aus Kohlenhydraten sind eingeplant. ':"")
+    +"Gleiche Kalorien an jedem Tag — an Trainingstagen mehr Kohlenhydrate, an Ruhetagen mehr Fett."
+    +(off?' <button class="linkbtn" type="button" id="offReset">Anpassung zurücksetzen</button>':"");
+  if(off)$("offReset").onclick=function(){if(!confirm("Kalorienanpassung zurücksetzen?"))return;S.settings.kcalOffset=0;markDirty("settings");renderEssen();renderWeekBrief();};
+  var n=S.nutrition[CUR.today]||{};
+  $("nDate").textContent=fmtD(new Date());
+  $("i-kcal").value=n.kcal!=null?n.kcal:"";$("i-prot").value=n.prot!=null?n.prot:"";
+  drawBars();
+  var ws=wSeries();
+  if(ws.length>=3){
+    var sm=ma(ws.map(function(x){return x.v;}),7);
+    $("wChart").innerHTML=chart([{pts:ws.map(function(x,i){return{d:x.d,v:+sm[i].toFixed(2)};}),c:C_INFO,fill:true}],
+      {pad:1.5,marks:marksFor(ws.map(function(x){return x.d;})),l:shortD(ws[0].d),r:shortD(ws[ws.length-1].d)});
+    var cur=sm[sm.length-1],first=sm[Math.min(6,sm.length-1)];
+    $("wStats").innerHTML=stat(nf(cur)+" kg","7-Tage-Schnitt")+stat(sg(cur-first)+" kg","Seit Start")
+      +stat(cur>64?nf(cur-64)+" kg":"erreicht","bis 64 kg")+stat(ws.length,"Wiegetage");
+  }else{$("wChart").innerHTML='<p class="empty">Ab drei Wiegetagen erscheint hier dein Trend.</p>';$("wStats").innerHTML="";}
+  adviseW();
+}
+function adviseW(){
+  var box=$("wAdvice"),p=CUR.phase,tg=targets(p);
+  function info(h,t){box.innerHTML='<h3 style="font-size:14px">'+h+'</h3><p class="hint" style="margin-top:6px">'+t+'</p>';}
+  if(CUR.pre){info("Ab morgen","Wieg dich täglich: morgens, nach der Toilette, vor dem Trinken. Den Wert trägst du im Logbuch ein.");return;}
+  if(p.rate===0){info("Diet-Break","Das Gewicht darf jetzt um ein Kilo schwanken — volle Glykogenspeicher binden Wasser, das ist kein Fett. In dieser Phase gibt es keine Kalorienanpassung.");return;}
+  var t=trendCmp();
+  if(!t||t.ref==null){info("Noch keine Empfehlung","Die App vergleicht dein Gewicht mit demselben Zyklustag im letzten Zyklus — ohne Zyklusdaten mit vier Wochen vorher. Dafür braucht es rund fünf Wochen fast tägliches Wiegen. Vorher wäre jede Empfehlung Wasser-Rauschen.");return;}
+  if(CUR.today>=BREAK_START&&iso(addDays(pISO(t.refDate),-6))<=BREAK_END){
+    info("Nach dem Diet-Break","Der Vergleich reicht in die Feiertage zurück — Glykogen und Wasser verzerren ihn. Bleib bei deinem Kalorienziel aus dem Dezember; das reicht für die letzten Wochen.");return;}
+  var adj=S.settings.adj||[],lastAdj=adj.length?adj[adj.length-1].d:null;
+  if(lastAdj&&days(pISO(lastAdj),pISO(CUR.today))<14){
+    info("Anpassung läuft","Letzte Kalorienanpassung am "+shortD(lastAdj)+". Die nächste Bewertung gibt es ab "+shortD(iso(addDays(pISO(lastAdj),14)))+" — vorher sieht man den Effekt noch nicht.");return;}
+  var exp=p.rate*t.days/7,diff=t.diff-exp,tol=Math.max(0.3,0.4*t.days/28),
+      how=t.method==="cycle"?"gegen denselben Zyklustag im letzten Zyklus":"gegen vier Wochen vorher",
+      dTxt=sg(t.diff)+" kg",txt,col,delta=0;
+  if(diff>tol){
+    if(tg.kcal-100<FLOOR){txt="Der Trend fällt langsamer als geplant ("+dTxt+" statt "+sg(exp)+" kg, "+how+"), aber 1.750 kcal sind die Untergrenze. Statt weniger zu essen: täglich 2.000 Schritte mehr.";col="var(--acc)";}
+    else{txt="Der Trend fällt langsamer als geplant ("+dTxt+" statt "+sg(exp)+" kg, "+how+"). Senk auf "+fmtK(tg.kcal-100)+" kcal — vorausgesetzt, du hast sauber getrackt.";col="var(--acc)";delta=-100;}
+  }else if(diff<-tol){txt="Du verlierst schneller als geplant ("+dTxt+" statt "+sg(exp)+" kg, "+how+"). Das kostet Kraft — erhöh auf "+fmtK(tg.kcal+100)+" kcal.";col="var(--warn)";delta=100;}
+  else{txt="Trend im Zielkorridor ("+dTxt+", "+how+"). Nichts ändern.";col="var(--ok)";}
+  box.innerHTML='<h3 style="color:'+col+';font-size:14px">Empfehlung</h3><p class="hint" style="margin-top:6px">'+txt+'</p>'
+    +(delta?'<button class="btn ghost sm" type="button" id="adjBtn" style="margin-top:12px">Auf '+fmtK(tg.kcal+delta)+' kcal umstellen</button>':"");
+  if(delta)$("adjBtn").onclick=function(){S.settings.kcalOffset=(S.settings.kcalOffset||0)+delta;
+    (S.settings.adj=S.settings.adj||[]).push({d:CUR.today,v:delta});markDirty("settings");renderEssen();renderWeekBrief();};
+}
+function drawBars(){
+  var tg=targets(CUR.phase),k=parseFloat($("i-kcal").value)||0,pr=parseFloat($("i-prot").value)||0;
+  function bar(l,v,g,u,x){var pc=Math.min(100,g?v/g*100:0);
+    return'<div style="margin-bottom:11px"><div style="display:flex;justify-content:space-between;font-size:12px">'
+      +'<span>'+l+'</span><span class="neu" style="font-variant-numeric:tabular-nums">'+Math.round(v)+" / "+fmtK(g)+" "+u+(x||"")+'</span></div>'
+      +'<div class="bar"><i style="width:'+pc.toFixed(0)+'%;background:'+(pc>=95?"var(--ok)":"var(--acc)")+'"></i></div></div>';}
+  $("nBars").innerHTML=bar("Kalorien",k,tg.kcal,"kcal",lateLuteal()?" (+150)":"")+bar("Protein",pr,tg.p,"g");
+}
+["i-kcal","i-prot"].forEach(function(id){$(id).addEventListener("input",drawBars);});
+$("saveNutri").onclick=function(){
+  var k=parseInt($("i-kcal").value,10),p=parseInt($("i-prot").value,10);
+  if(isNaN(k)&&isNaN(p)){delete S.nutrition[CUR.today];}
+  else S.nutrition[CUR.today]={kcal:isNaN(k)?null:k,prot:isNaN(p)?null:p};
+  markDirty("nutrition");flash(this,"Gespeichert");
+};
+
+/* ══ Zusammenhänge ══ */
+function ins(title,ok,text,need){
+  return'<div class="insight'+(ok?"":" locked")+'"><h4>'+title+'</h4><p>'+(ok?text:need)+'</p></div>';}
+function bars(rows,fmt){
+  var mx=Math.max.apply(null,rows.map(function(r){return r.v;}));
+  return rows.map(function(r){
+    return'<div class="bbar"><span class="lbl">'+r.l+'</span><span class="track"><i style="width:'
+      +(mx?Math.max(4,r.v/mx*100):0).toFixed(0)+'%"></i></span><span class="val">'+(fmt?fmt(r.v):Math.round(r.v))+'</span></div>';
+  }).join("");}
+function perfIndex(date){
+  var tr=S.training[date];if(!tr||!tr.sets)return null;
+  var idx=[],d0=pISO(date);
+  Object.keys(tr.sets).forEach(function(name){
+    var today=bestE1(date,name);if(!today)return;
+    var prior=[];
+    Object.keys(S.training).forEach(function(k){
+      if(k>=date)return;var dd=days(pISO(k),d0);if(dd>28)return;
+      var v=bestE1(k,name);if(v)prior.push(v);});
+    if(prior.length<2)return;
+    idx.push(today/mean(prior));});
+  return idx.length?mean(idx):null;
+}
+function renderInsights(){
+  var host=$("insights"),out="",dates=Object.keys(S.checkins).sort();
+  var rdy={};dates.forEach(function(d){var r=R(d);if(r!=null)rdy[d]=r;});
+  var rDates=Object.keys(rdy);
+  /* 1 Schlafdauer */
+  var buckets=[{l:"unter 6,5 h",t:function(h){return h<6.5;},v:[]},
+               {l:"6,5–7,5 h",t:function(h){return h>=6.5&&h<7.5;},v:[]},
+               {l:"7,5–8,5 h",t:function(h){return h>=7.5&&h<8.5;},v:[]},
+               {l:"über 8,5 h",t:function(h){return h>=8.5;},v:[]}];
+  var nSleep=0;
+  rDates.forEach(function(d){var h=S.checkins[d].sleepH;if(h==null)return;nSleep++;
+    buckets.forEach(function(b){if(b.t(h))b.v.push(rdy[d]);});});
+  if(nSleep>=14){
+    var rows=buckets.filter(function(b){return b.v.length>=3;}).map(function(b){return{l:b.l,v:mean(b.v),n:b.v.length};});
+    if(rows.length>=2){
+      var best=rows.slice().sort(function(a,b){return b.v-a.v;})[0],worst=rows.slice().sort(function(a,b){return a.v-b.v;})[0];
+      out+='<div class="insight"><h4>Schlafdauer und Readiness</h4>'+bars(rows)
+        +'<p style="margin-top:8px">Dein bester Bereich liegt bei <span class="verdict">'+best.l
+        +'</span> — das sind '+Math.round(best.v-worst.v)+' Punkte mehr als bei '+worst.l+'. Gemessen über '+nSleep+' Tage.</p></div>';
+    }else out+=ins("Schlafdauer und Readiness",false,"","Noch zu wenig Streuung in deinen Schlafzeiten. Sobald verschiedene Nachtlängen vorkommen, siehst du hier deinen Korridor.");
+  }else out+=ins("Schlafdauer und Readiness",false,"","Braucht 14 Tage mit eingetragenem Schlaf — noch "+(14-nSleep)+" fehlen.");
+  /* 2 Readiness und Trainingsleistung */
+  var pairs=[];
+  Object.keys(S.training).sort().forEach(function(d){var p=perfIndex(d),r=rdy[d];if(p!=null&&r!=null)pairs.push({r:r,p:p});});
+  if(pairs.length>=8){
+    var med=median(pairs.map(function(x){return x.r;}));
+    var hi=pairs.filter(function(x){return x.r>=med;}).map(function(x){return x.p;}),lo=pairs.filter(function(x){return x.r<med;}).map(function(x){return x.p;});
+    if(hi.length>=3&&lo.length>=3){
+      var gap=(mean(hi)-mean(lo))*100,sh=(mean(hi)-1)*100,sl=(mean(lo)-1)*100;
+      out+='<div class="insight"><h4>Readiness und Trainingsleistung</h4><table class="t" style="margin-bottom:10px"><tbody>'
+        +'<tr><td>Deine besseren Tage (ab '+med+')</td><td class="'+(sh>=0?"pos":"neg")+'">'+sg(sh)+' %</td></tr>'
+        +'<tr><td>Deine schwächeren Tage</td><td class="'+(sl>=0?"pos":"neg")+'">'+sg(sl)+' %</td></tr></tbody></table>'
+        +'<p>Abweichung deines geschätzten 1RM vom eigenen Vierwochenschnitt. Der Unterschied zwischen guten und schlechten Tagen liegt bei <span class="verdict">'
+        +nf(Math.abs(gap))+' Prozent</span>. '
+        +(gap>=2?"Der Score bildet deine Tagesform also tatsächlich ab — du kannst ihm vertrauen.":
+          gap<=-2?"Ungewöhnlich: Du hebst an schlechten Tagen mehr. Schau, ob du das Logbuch erst nach dem Training ausfüllst — dann misst der Score die Einheit statt der Ausgangslage.":
+          "Der Unterschied ist klein. Entweder gleichst du schwache Tage gut aus, oder der Score trifft bei dir nicht — beobachte das weiter.")+'</p></div>';
+    }else out+=ins("Readiness und Trainingsleistung",false,"","Deine Readiness streut noch zu wenig, um gute und schlechte Tage zu trennen.");
+  }else out+=ins("Readiness und Trainingsleistung",false,"","Braucht acht Einheiten mit Logbucheintrag und Vergleichswerten aus den Vorwochen. Bisher "+pairs.length+".");
+  /* 3 Belastung -> Körper am Folgetag */
+  var xs=[],ys=[];
+  rDates.forEach(function(d){var c=S.checkins[d];if(!c.stress)return;
+    var c2=S.checkins[iso(addDays(pISO(d),1))];if(!c2)return;var b=bodyScore(c2);if(b==null)return;xs.push(c.stress);ys.push(b);});
+  if(xs.length>=14){
+    var r1=pearson(xs,ys);
+    out+=ins("Belastung heute, Körper morgen",true,
+      r1==null?"Keine Streuung in deinen Belastungswerten.":
+      (Math.abs(r1)<0.2?"Zwischen deiner Tagesbelastung und deinem Körperscore am Folgetag zeigt sich <span class=\"verdict\">kein klarer Zusammenhang</span> ("+xs.length+" Paare). Dein Alltagsstress schlägt also nicht direkt auf die körperliche Erholung durch.":
+       (r1<0?"Hohe Belastung geht bei dir mit einem <span class=\"verdict\">schlechteren Körperscore am Folgetag</span> einher (r = "+nf(r1,2)+", "+xs.length+" Paare). Plan volle Arbeitswochen vorher mit weniger Volumen.":
+             "Hohe Belastung geht bei dir mit einem <span class=\"verdict\">besseren Körperscore am Folgetag</span> einher (r = "+nf(r1,2)+"). Ungewöhnlich — schau dir die Tage einzeln an, bevor du daraus etwas ableitest.")));
+  }else out+=ins("Belastung heute, Körper morgen",false,"","Braucht 14 aufeinanderfolgende Tagespaare — bisher "+xs.length+".");
+  /* 4 Wochentage */
+  if(rDates.length>=21){
+    var wd=[[],[],[],[],[],[],[]],nm=["Mo","Di","Mi","Do","Fr","Sa","So"];
+    rDates.forEach(function(d){var i=(pISO(d).getDay()+6)%7;wd[i].push(rdy[d]);});
+    var rows2=wd.map(function(v,i){return{l:nm[i],v:v.length?mean(v):0,n:v.length};}).filter(function(r){return r.n>=2;});
+    if(rows2.length>=4){var w2=rows2.slice().sort(function(a,b){return a.v-b.v;})[0];
+      out+='<div class="insight"><h4>Wochentagsmuster</h4>'+bars(rows2)
+        +'<p style="margin-top:8px">Dein schwächster Tag ist <span class="verdict">'+w2.l+'</span>. Wenn das stabil bleibt, leg die schwerste Einheit der Woche nicht dorthin.</p></div>';}
+  }else out+=ins("Wochentagsmuster",false,"","Braucht 21 Logbuchtage — bisher "+rDates.length+".");
+  /* 5 Deload */
+  var dl=[],ld=[];
+  rDates.forEach(function(d){var w=weekOf(pISO(d));if(w<0||w>LASTW)return;(isDeload(w)||w===HOLW?dl:ld).push(rdy[d]);});
+  if(dl.length>=5&&ld.length>=10){var g=mean(dl)-mean(ld);
+    out+=ins("Wirken deine Deloads?",true,'In Deload- und Feiertagswochen liegt deine Readiness im Schnitt <span class="verdict">'+nf(Math.abs(g))
+      +' Punkte '+(g>=0?"über":"unter")+'</span> den Belastungswochen ('+dl.length+" gegen "+ld.length+" Tage). "
+      +(g>=5?"Sie tun genau das, was sie sollen.":g>=0?"Der Effekt ist klein — entweder reduzierst du dort nicht konsequent, oder deine Belastungswochen sind noch nicht hart genug.":"Ungewöhnlich. Schau, ob du in Deload-Wochen wirklich reduzierst oder nur anders trainierst."));
+  }else out+=ins("Wirken deine Deloads?",false,"","Braucht mindestens eine volle Deload-Woche im Logbuch. Erste Gelegenheit ist Woche 5.");
+  /* 6 Protein */
+  var na=[],nb=[];
+  Object.keys(S.nutrition).forEach(function(d){var n=S.nutrition[d];if(!n||n.prot==null)return;
+    var r=rdy[iso(addDays(pISO(d),1))];if(r==null)return;var tgt=targets(phaseOf(Math.max(0,weekOf(pISO(d))))).p;
+    (n.prot>=tgt*0.9?na:nb).push(r);});
+  if(na.length>=5&&nb.length>=5){var gp=mean(na)-mean(nb);
+    out+=ins("Protein und Readiness am Folgetag",true,'Nach Tagen, an denen du dein Proteinziel getroffen hast, liegt deine Readiness <span class="verdict">'
+      +nf(Math.abs(gp))+' Punkte '+(gp>=0?"höher":"niedriger")+'</span> ('+na.length+" gegen "+nb.length+" Tage).");
+  }else out+=ins("Protein und Readiness am Folgetag",false,"","Braucht je fünf Tage mit getroffenem und verfehltem Proteinziel. Bisher "+na.length+" und "+nb.length+".");
+  host.innerHTML=out;
+}
+function renderCycInsights(){
+  var host=$("cycInsights"),out="";
+  if(hormonal()){host.innerHTML='<p class="empty">Bei hormoneller Verhütung gibt es keine natürlichen Zyklusphasen. Die App wertet deshalb nur deine Beschwerden aus — und die fließen direkt in die Readiness.</p>';return;}
+  if(!starts().length){host.innerHTML='<p class="empty">Sobald dein erster Periodenbeginn erfasst ist, zeigt die App hier Readiness, Leistung und Gewicht je Zyklusphase.</p>';return;}
+  /* 1 Readiness ohne Zyklusabzug */
+  var by={},n=0;
+  Object.keys(S.checkins).forEach(function(d){var b=baseOf(S.checkins[d]);if(b==null)return;
+    var ci=cycleInfo(d);if(!ci||ci.key==="late")return;(by[ci.key]=by[ci.key]||[]).push(b);n++;});
+  var rows=PHK.filter(function(k){return by[k]&&by[k].length>=3;}).map(function(k){return{l:PHN[k],v:mean(by[k])};});
+  if(rows.length>=4&&n>=25){
+    var best=rows.slice().sort(function(a,b){return b.v-a.v;})[0],worst=rows.slice().sort(function(a,b){return a.v-b.v;})[0];
+    out+='<div class="insight"><h4>Readiness je Zyklusphase</h4>'+bars(rows)+'<p style="margin-top:8px">Ohne Zyklusabzug gerechnet — also dein natürliches Muster aus Schlaf, Stimmung und Co. Am stärksten: <span class="verdict">'
+      +best.l+'</span>, am schwächsten: <span class="verdict">'+worst.l+'</span>, '+Math.round(best.v-worst.v)+' Punkte Unterschied über '+n+' Tage.</p></div>';
+  }else out+=ins("Readiness je Zyklusphase",false,"","Braucht rund einen vollen Zyklus mit Logbucheinträgen in mindestens vier Phasen — bisher "+n+" Tage.");
+  /* 2 Leistung je Phase */
+  if(CAL.ok){
+    var trs=PHK.filter(function(k){return CAL.pct[k]!=null;}).map(function(k){var p=CAL.pct[k];
+      return'<tr><td>'+PHN[k]+'</td><td class="neu">'+CAL.cnt[k]+'×</td><td class="'+(p>=1?"pos":p<=-1?"neg":"neu")+'">'+sg(p)+' %</td><td><b>'+fmtPts(CAL.by[k])+'</b></td></tr>';}).join("");
+    out+='<div class="insight"><h4>Leistung je Zyklusphase</h4><table class="t" style="margin-bottom:10px"><thead><tr><th>Phase</th><th>Einh.</th><th>e1RM</th><th>Punkte</th></tr></thead><tbody>'+trs
+      +'</tbody></table><p>Abweichung deines geschätzten 1RM vom eigenen Vierwochenschnitt, je Phase. <span class="verdict">Diese Werte ersetzen jetzt den Startwert</span> in der Readiness — dein Zyklus statt Lehrbuch.</p></div>';
+  }else out+=ins("Leistung je Zyklusphase",false,"","Braucht 16 Einheiten mit Vergleichswerten und je drei in mindestens drei Phasen — bisher "+CAL.n+". Bis dahin nutzt die Readiness den Startwert: −3 an Zyklustag 1 bis 3.");
+  /* 3 Gewicht je Phase */
+  var ws=wSeries(),map={};ws.forEach(function(x){map[x.d]=x.v;});
+  var wb={},wn=0;
+  ws.forEach(function(x){var a=[];for(var i=-3;i<=3;i++){var k=iso(addDays(pISO(x.d),i));if(map[k]!=null)a.push(map[k]);}
+    if(a.length<5)return;var ci=cycleInfo(x.d);if(!ci||ci.key==="late")return;(wb[ci.key]=wb[ci.key]||[]).push(x.v-mean(a));wn++;});
+  var wr=PHK.filter(function(k){return wb[k]&&wb[k].length>=3;});
+  if(wr.length>=4&&wn>=20){
+    var mx=wr.slice().sort(function(a,b){return mean(wb[b])-mean(wb[a]);})[0];
+    out+='<div class="insight"><h4>Gewicht je Zyklusphase</h4><table class="t" style="margin-bottom:10px"><tbody>'
+      +wr.map(function(k){var v=mean(wb[k]);return'<tr><td>'+PHN[k]+'</td><td class="'+(v>0.15?"amb":v<-0.15?"pos":"neu")+'">'+sg(v,2)+' kg</td></tr>';}).join("")
+      +'</tbody></table><p>Abweichung vom eigenen Wochenschnitt. Am meisten Wasser hältst du in der Phase <span class="verdict">'+PHN[mx]+'</span> — an diesen Tagen sagt die Waage nichts über Fett.</p></div>';
+  }else out+=ins("Gewicht je Zyklusphase",false,"","Braucht etwa einen Zyklus mit fast täglichem Wiegen — bisher "+wn+" auswertbare Tage.");
+  /* 4 Symptommuster */
+  var sy={},dph={},sn=0;
+  Object.keys(S.checkins).forEach(function(d){var c=S.checkins[d],ci=cycleInfo(d);if(!ci||ci.key==="late")return;
+    dph[ci.key]=(dph[ci.key]||0)+1;
+    (c.sym||[]).forEach(function(s){sy[s]=sy[s]||{};sy[s][ci.key]=(sy[s][ci.key]||0)+1;sn++;});});
+  var rows4=SYMS.filter(function(s){return sy[s];}).map(function(s){var bk=null,bv=-1,tot=0;
+    PHK.forEach(function(k){var v=sy[s][k]||0;tot+=v;var sh=v/(dph[k]||1);if(v>0&&sh>bv){bv=sh;bk=k;}});
+    return{s:s,k:bk,sh:bv,tot:tot};}).filter(function(r){return r.tot>=2&&r.k;}).sort(function(a,b){return b.tot-a.tot;});
+  if(sn>=8&&rows4.length){
+    out+='<div class="insight"><h4>Symptommuster</h4><table class="t" style="margin-bottom:10px"><thead><tr><th>Symptom</th><th>Tage</th><th>Häufigste Phase</th></tr></thead><tbody>'
+      +rows4.map(function(r){return'<tr><td>'+r.s+'</td><td class="neu">'+r.tot+'×</td><td>'+PHN[r.k]+'<small>'+Math.round(r.sh*100)+' % der Tage</small></td></tr>';}).join("")
+      +'</tbody></table><p>Wenn du weißt, wann Heißhunger oder Wassereinlagerung kommen, sind sie kein Rückschlag mehr, sondern ein Termin.</p></div>';
+  }else out+=ins("Symptommuster",false,"","Sobald du an rund acht Tagen Symptome angetippt hast, zeigt die App, in welcher Phase sie gehäuft auftreten.");
+  host.innerHTML=out;
+}
+function renderTagInsights(){
+  var box=$("tagInsights"),by={},dates=Object.keys(S.checkins).sort();
+  dates.forEach(function(k){var r=R(k);if(r==null)return;var tg=S.checkins[k].tags||[];
+    TAGS.forEach(function(t){if(!by[t])by[t]={y:[],n:[]};(tg.indexOf(t)>-1?by[t].y:by[t].n).push(r);});});
+  var rows=[];
+  TAGS.forEach(function(t){var b=by[t];if(!b||b.y.length<4||b.n.length<4)return;rows.push({t:t,d:mean(b.y)-mean(b.n),n:b.y.length});});
+  rows.sort(function(a,b){return Math.abs(b.d)-Math.abs(a.d);});
+  if(!rows.length){box.innerHTML='<p class="empty">Noch zu wenig Daten. Nach etwa drei Wochen täglicher Einträge erscheinen hier deine ersten Muster.</p>';return;}
+  box.innerHTML='<table class="t"><thead><tr><th>Verhalten</th><th>Tage</th><th>Readiness</th></tr></thead><tbody>'
+    +rows.map(function(r){var c=r.d>1.5?"pos":r.d<-1.5?"neg":"neu";
+      return'<tr><td>'+r.t+'</td><td class="neu">'+r.n+'×</td><td class="'+c+'"><b>'+sg(r.d)+'</b></td></tr>';}).join("")
+    +'</tbody></table><p class="hint" style="margin-top:12px">Werte unter ±1,5 Punkten sind Rauschen. Ab vier Wochen werden die Zahlen belastbar.</p>';
+}
+function careCard(cls,h,t){return'<div class="card banner '+cls+'"><h3>'+h+'</h3><p class="hint" style="margin-top:7px">'+t+'</p></div>';}
+function careCycle(){
+  if(hormonal()||!starts().length)return"";
+  var out="",ci=CUR.ci,L=avgLen();
+  if(ci&&ci.key==="late"&&ci.day-L>=7)
+    out+=careCard("wn","Periode überfällig","Deine Periode ist "+(ci.day-L)+" Tage später als erwartet. Im Defizit mit hartem Training kann der Zyklus ausbleiben — ein klassisches Zeichen dafür, dass zu wenig Energie ankommt (RED-S). Stell die Kalorien vorerst auf Erhaltung (2.300) und lass es gynäkologisch abklären, wenn sie nicht bald kommt. Andere Gründe wie Stress, Krankheit oder eine Schwangerschaft klärt dieselbe Untersuchung.");
+  var iv=intervals();
+  if(iv.length>=3){var last=iv[iv.length-1],prev=mean(iv.slice(Math.max(0,iv.length-7),-1));
+    if(Math.abs(last-prev)>7)out+=careCard("cy","Zykluslänge verändert","Dein letzter Zyklus war "+Math.round(Math.abs(last-prev))+" Tage "+(last>prev?"länger":"kürzer")
+      +" als dein Schnitt. Einmal kommt das vor. Passiert es im Defizit zweimal hintereinander, ist es ein Signal für zu wenig Energie — dann Kalorien hoch und ärztlich abklären.");}
+  var st=starts(),from=st[st.length-1],prevS=st.length>1?st[st.length-2]:null;
+  function heavy(a,b){var n=0;Object.keys(S.checkins).forEach(function(k){if(k>=a&&(!b||k<b)&&S.checkins[k].flow==="heavy")n++;});return n;}
+  if(Math.max(heavy(from,null),prevS?heavy(prevS,from):0)>=3)
+    out+=careCard("cy","Mehrere Tage starke Blutung","Starke Blutung kostet Eisen. Wenn du dich dazu dauerhaft müde fühlst: Ferritin beim Hausarzt oder in der Gynäkologie bestimmen lassen — Eisenmangel ist bei trainierenden Frauen häufig und kostet Leistung, lange bevor das Hämoglobin sinkt.");
+  return out;
+}
+function renderCare(){
+  var out="",ks=Object.keys(S.checkins).sort().slice(-14);
+  var md=ks.map(function(k){return S.checkins[k].mood;}).filter(function(x){return x;});
+  if(md.length>=10&&mean(md)<=2.3)out+=careCard("","Kurz aus dem Trainingskontext raus","Deine Stimmungswerte liegen seit über zwei Wochen dauerhaft niedrig. Das ist nichts, was ein Trainingsplan löst, und auch nichts, was man wegtrainiert. Sprich mit jemandem, dem du vertraust, oder mit deiner Hausarztpraxis — das ist der sinnvollere nächste Schritt als ein weiterer Deload.");
+  $("careBox").innerHTML=out+careCycle();
+}
+function renderCycCard(){
+  var ci=CUR.ci,L=avgLen(),st=starts(),nIv=intervals().length,sub;
+  if(!st.length)sub="Noch kein Periodenbeginn erfasst. Trag ihn unten nach oder logg im Logbuch einfach die Blutung.";
+  else if(hormonal())sub="Hormonelle Verhütung: Die App rechnet ohne Phasen, nur die Beschwerden zählen."+(ci?" Tag "+ci.day+" seit der letzten Blutung.":"");
+  else sub=ci?"Heute Zyklustag "+ci.day+" · "+ci.label+".":"—";
+  $("cycSub").textContent=sub;
+  var nextTxt="—";if(st.length&&!hormonal())nextTxt=fmtDM(addDays(pISO(st[st.length-1]),L));
+  $("cycStats").innerHTML=stat(L+" Tage","Ø Zykluslänge",'<small class="neu">'+(nIv?"aus "+nIv+(nIv===1?" Zyklus":" Zyklen"):"aus den Einstellungen")+'</small>')
+    +stat(nextTxt,"Nächste Periode ca.");
+  var sl=$("startList");sl.innerHTML="";
+  if(!st.length)sl.innerHTML='<span class="hint">Noch keiner.</span>';
+  st.slice(-6).reverse().forEach(function(d){
+    var sp=document.createElement("span");sp.className="st";sp.textContent=fmtDMY(pISO(d));
+    var b=document.createElement("button");b.type="button";b.textContent="×";b.setAttribute("aria-label","Periodenbeginn "+fmtDMY(pISO(d))+" entfernen");
+    b.onclick=function(){if(!confirm("Periodenbeginn vom "+fmtDMY(pISO(d))+" entfernen?"))return;
+      var a=S.cycle.starts,i=a.indexOf(d);if(i>-1)a.splice(i,1);delete S.cycle.auto[d];markDirty("cycle");renderAll();};
+    sp.appendChild(b);sl.appendChild(sp);});
+  $("addStart").max=CUR.today;
+  setSeg("stContra",S.settings.contra||"natural");
+  $("stLen").value=S.settings.cycleLen||28;$("stPer").value=S.settings.periodLen||5;
+}
+$("addStartBtn").onclick=function(){
+  var d=$("addStart").value,btn=this;if(!d){flash(btn,"Datum wählen");return;}
+  if(d>CUR.today){flash(btn,"Liegt in der Zukunft");return;}
+  var near=starts().filter(function(s){return s!==d&&Math.abs(days(pISO(s),pISO(d)))<15;});
+  if(near.length&&!confirm("Das liegt nur "+Math.abs(days(pISO(near[0]),pISO(d)))+" Tage neben einem erfassten Beginn. Trotzdem speichern?"))return;
+  addStart(d);S.settings.setup=true;markDirty("settings");$("addStart").value="";renderAll();flash(btn,"Gespeichert");
+};
+$("stSave").onclick=function(){
+  saveCycleSettings($("stContra").dataset.v||"natural",parseInt($("stLen").value,10),parseInt($("stPer").value,10));
+  renderAll();flash(this,"Gespeichert");
+};
+function renderTrends(){
+  renderCare();renderCycCard();
+  var ks=Object.keys(S.checkins).sort().slice(-70),rp=[],bp=[],mp=[];
+  ks.forEach(function(k){var c=S.checkins[k],r=readinessOf(c,k);
+    if(r!=null)rp.push({d:shortD(k),k:k,v:r});
+    var b=bodyScore(c),m=mindScore(c);
+    if(b!=null)bp.push({d:shortD(k),k:k,v:b});if(m!=null)mp.push({d:shortD(k),k:k,v:m});});
+  function smooth(p){var s=ma(p.map(function(x){return x.v;}),7);return p.map(function(x,i){return{d:x.d,v:Math.round(s[i])};});}
+  $("rChart").innerHTML=chart([{pts:smooth(rp),c:C_ACC,fill:true}],
+    {min:0,max:100,marks:marksFor(rp.map(function(x){return x.k;})),l:rp.length?rp[0].d:"",r:rp.length?rp[rp.length-1].d:"",
+     emptyText:"Ab zwei Logbucheinträgen erscheint hier deine Kurve."});
+  if(rp.length){var l7=rp.slice(-7);
+    $("rStats").innerHTML=stat(Math.round(mean(l7.map(function(x){return x.v;}))),"Ø letzte 7 Tage")
+      +stat(Math.round(mean(rp.map(function(x){return x.v;}))),"Ø gesamt");}
+  else $("rStats").innerHTML="";
+  $("bmChart").innerHTML=chart([{pts:smooth(bp),c:C_OK,name:"Körper"},{pts:smooth(mp),c:C_INFO,name:"Kopf"}],
+    {min:0,max:100,l:bp.length?bp[0].d:"",r:bp.length?bp[bp.length-1].d:"",emptyText:"Ab zwei Logbucheinträgen laufen hier zwei Linien."});
+  renderCycInsights();renderInsights();renderTagInsights();
+  var today=pISO(CUR.today),total=CUR.pre?0:Math.max(1,Math.min(days(START,today)+1,days(START,END)+1));
+  var se=Object.keys(S.training).filter(function(k){return S.training[k].done;}).length;
+  var expS=Math.round(total/7*4),streak=0,d=S.checkins[CUR.today]?today:addDays(today,-1);
+  while(S.checkins[iso(d)]){streak++;d=addDays(d,-1);}
+  $("cStats").innerHTML=stat(se+(expS?" / "+expS:""),"Einheiten")+stat(Object.keys(S.checkins).length,"Logbuchtage")
+    +stat(streak,"Tage in Folge")+stat(Object.keys(S.nutrition).length,"Ernährungstage");
+}
+
+/* ══ Daten ══ */
+function backupObj(){var o={};KEYS.forEach(function(k){o[k]=S[k];});o._u=S._u||Date.now();
+  o._app="tessa-rekomposition";o._v=1;o._exported=new Date().toISOString();return JSON.parse(JSON.stringify(o));}
+$("dlBtn").onclick=function(){
+  var txt=JSON.stringify(backupObj()),name="tessa-sicherung-"+CUR.today+".json",btn=this;
+  try{var file=new File([txt],name,{type:"application/json"});
+    if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){
+      navigator.share({files:[file],title:"Tessa · Sicherung"}).catch(function(){});return;}}catch(e){}
+  var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([txt],{type:"application/json"}));a.download=name;
+  document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},800);flash(btn,"Heruntergeladen");
+};
+$("ulBtn").onclick=function(){$("ulFile").click();};
+$("ulFile").onchange=function(){var f=this.files&&this.files[0];if(!f)return;var rd=new FileReader();
+  rd.onload=function(){importText(String(rd.result));};rd.readAsText(f);this.value="";};
+function importText(txt){var o;
+  try{o=JSON.parse(txt);}catch(e){alert("Das ist keine gültige Sicherung.");return;}
+  if(!o||typeof o!=="object"||!o.checkins||!o.training){alert("Das ist keine gültige Sicherung.");return;}
+  if(!confirm("Sicherung einspielen? Alle Daten auf diesem Gerät werden dadurch ersetzt."))return;
+  KEYS.forEach(function(k){if(o[k]!==undefined)S[k]=o[k];});normalize();markDirty();renderAll();alert("Sicherung eingespielt.");}
+$("expBtn").onclick=function(){var b=$("expBox"),ib=$("impTxtBtn");
+  if(b.style.display==="none"){b.style.display="block";ib.style.display="block";b.value=JSON.stringify(backupObj());b.select();this.textContent="Ausblenden";}
+  else{b.style.display="none";ib.style.display="none";this.textContent="Als Text anzeigen";}};
+$("impTxtBtn").onclick=function(){importText($("expBox").value);};
+
+/* ══ Wissen ══ */
+document.querySelectorAll(".acc > button").forEach(function(b){
+  b.onclick=function(){var open=b.getAttribute("aria-expanded")==="true";
+    b.setAttribute("aria-expanded",open?"false":"true");
+    b.parentElement.querySelector(".body").classList.toggle("on",!open);};});
+
+/* ══ Navigation ══ */
+function curView(){var v=document.querySelector(".view.on");return v?v.id.slice(2):"heute";}
+function go(v){
+  document.querySelectorAll(".view").forEach(function(x){x.classList.toggle("on",x.id==="v-"+v);});
+  document.querySelectorAll("nav button").forEach(function(b){
+    if(b.dataset.v===v)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current");});
+  window.scrollTo(0,0);
+  if(v==="heute")refreshHeuteInfo();
+  if(v==="training")setTrMode(trMode);
+  if(v==="essen")renderEssen();
+  if(v==="trends")renderTrends();
+}
+document.querySelectorAll("nav button").forEach(function(b){b.onclick=function(){go(b.dataset.v);};});
+function renderHeader(){
+  $("hTitle").textContent=CUR.pre?"Start morgen":CUR.post?"Plan abgeschlossen":CUR.week===0?"Einstiegswoche":"Woche "+CUR.week+" von "+LASTW;
+  $("hSub").textContent=CUR.pre?"Erster Trainingstag: Do, 29.10.2026":CUR.post?"Abschlussmessung im nächsten Messfenster":
+    (CUR.week===0?"Block 1 · Volumen · RPE 7":CUR.block.name)+(CUR.deload?" · Deload":"");
+  $("cdNum").textContent=CUR.cd;
+  var st=$("wstrip"),isNow=!CUR.pre&&!CUR.post;st.innerHTML="";
+  for(var w=0;w<=LASTW;w++){(function(w){
+    var b=document.createElement("button");b.type="button";
+    var cl=(isDeload(w)||w===HOLW)?"dl":"";
+    if(CUR.post||w<CUR.week)cl=cl?"past dl":"past";
+    if(isNow&&w===CUR.week)cl="now";
+    if(viewWeek===w&&!(isNow&&w===CUR.week))cl+=" sel";
+    b.className=cl;
+    b.title=(w===0?"Einstiegswoche":"Woche "+w)+(isDeload(w)?" · Deload":"")+(w===HOLW?" · Feiertage":"")+(w===TESTW?" · Abschluss":"");
+    b.setAttribute("aria-label",b.title);b.onclick=function(){openWeek(w);};st.appendChild(b);})(w);}
+}
+function renderAll(){computeCur();renderHeader();renderHeute();renderTrends();
+  var v=curView();if(v==="training")setTrMode(trMode);if(v==="essen")renderEssen();}
+
+/* ══ Start ══ */
+var boot=lsGet();
+if(boot&&typeof boot==="object")S=Object.assign(S,boot);
+normalize();
+renderAll();
+if(window.claude&&window.claude.use)initDB();
+else $("statusLine").textContent="Gespeichert auf diesem Gerät · Sicherung nicht vergessen.";
+document.addEventListener("visibilitychange",function(){
+  if(!document.hidden&&iso(new Date())!==CUR.today)renderAll();});
+if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){
+  navigator.serviceWorker.register("sw.js").catch(function(){});}
+if(navigator.storage&&navigator.storage.persist){navigator.storage.persist().catch(function(){});}
+
+</script>
+</body>
+</html>
